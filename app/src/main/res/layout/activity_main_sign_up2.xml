@@ -1,116 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivitySignUp">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/SignUpEmailRelativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivitySignUp">
 
-        <TextView
-            android:id="@+id/txtViewEmailAddress"
+        <RelativeLayout
+            android:id="@+id/SignUpEmailRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:text="Email Address*"
-            android:textSize="17sp"
-            android:textColor="#31bd5b"/>
+            android:layout_marginTop="40dp">
 
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_marginTop="30dp"
-            android:layout_width="390dp"
-            android:layout_height="60dp"
-            android:hint="Enter Address"
-            android:inputType="textEmailAddress"
-            android:layout_marginLeft="10dp"/>
+            <TextView
+                android:id="@+id/txtViewEmailAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:text="Email Address*"
+                android:textSize="17sp"
+                android:textColor="#31bd5b"/>
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_marginTop="30dp"
+                android:layout_width="390dp"
+                android:layout_height="60dp"
+                android:hint="Enter Address"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="10dp"/>
 
-    <RelativeLayout
-        android:id="@+id/SignUpEmailRelativeLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SignUpEmailRelativeLayout"
-        android:layout_marginTop="50dp">
+        </RelativeLayout>
 
-        <TextView
+        <RelativeLayout
+            android:id="@+id/SignUpEmailRelativeLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:text="Email Password*"
-            android:textSize="17sp"
-            android:textColor="#31bd5b"/>
+            android:layout_below="@+id/SignUpEmailRelativeLayout"
+            android:layout_marginTop="50dp">
 
-        <EditText
-            android:layout_marginTop="30dp"
-            android:layout_width="390dp"
-            android:layout_height="60dp"
-            android:hint="Enter Address"
-            android:inputType="textPassword"
-            android:layout_marginLeft="10dp"/>
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:text="Email Password*"
+                android:textSize="17sp"
+                android:textColor="#31bd5b"/>
 
-    <RelativeLayout
-        android:id="@+id/SignUpEmailRelativeLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SignUpEmailRelativeLayout2"
-        android:layout_marginTop="50dp">
+            <EditText
+                android:layout_marginTop="30dp"
+                android:layout_width="390dp"
+                android:layout_height="60dp"
+                android:hint="Enter Address"
+                android:inputType="textPassword"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
 
-        <TextView
+        <RelativeLayout
+            android:id="@+id/SignUpEmailRelativeLayout4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="13dp"
-            android:text="Comfirm Password*"
-            android:textSize="17sp"
-            android:textColor="#31bd5b"/>
+            android:layout_below="@+id/SignUpEmailRelativeLayout2"
+            android:layout_marginTop="50dp">
 
-        <EditText
-            android:layout_marginTop="30dp"
-            android:layout_width="390dp"
-            android:layout_height="60dp"
-            android:hint="Comfirm Password"
-            android:inputType="textPassword"
-            android:layout_marginLeft="10dp"/>
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:text="Comfirm Password*"
+                android:textSize="17sp"
+                android:textColor="#31bd5b"/>
 
-    <TextView
-        android:id="@+id/txtViewDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/SignUpEmailRelativeLayout4"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="16sp"
-        android:textColor="#838584"
-        android:text="By Sign up, I agree to the Terms Of Use and privancy\nPolicy of Our App."/>
+            <EditText
+                android:layout_marginTop="30dp"
+                android:layout_width="390dp"
+                android:layout_height="60dp"
+                android:hint="Comfirm Password"
+                android:inputType="textPassword"
+                android:layout_marginLeft="10dp"/>
+        </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txtFullDescription1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewDescription"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
-        android:textSize="16sp"
-        android:textColor="#838584"
-        android:text="E-Library collects and processes your email address\n
+        <TextView
+            android:id="@+id/txtViewDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SignUpEmailRelativeLayout4"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="16sp"
+            android:textColor="#838584"
+            android:text="By Sign up, I agree to the Terms Of Use and privancy\nPolicy of Our App."/>
+
+        <TextView
+            android:id="@+id/txtFullDescription1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtViewDescription"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:textSize="16sp"
+            android:textColor="#838584"
+            android:text="E-Library collects and processes your email address\n
 for maketing purpose. You can easily read the books\n and can buy the book
 as well whatever you want to buy or read it. THANK YOU!"/>
 
-    <Button
-        android:id="@+id/SignUpButton123"
-        android:layout_width="400dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/txtFullDescription1"
-        android:layout_marginTop="60dp"
-        android:textSize="20dp"
-        android:layout_centerHorizontal="true"
-        android:text="SIGN UP"/>
-</RelativeLayout>
+        <Button
+            android:id="@+id/SignUpButton123"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/txtFullDescription1"
+            android:layout_marginTop="60dp"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:text="SIGN UP"/>
+
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/SignUpButton123"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textSize="17sp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="already have account?"/>
+
+            <Button
+                android:id="@+id/btnSignInBack"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:text="Sign in"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.FirstITE" parent="Theme.Material3.DayNight">
+    <style name="Base.Theme.FirstITE" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="toolbarStyle">@layout/toolbar</item>
+    </style>
+
+    <style name="ButtonWhiteBackground" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_background_white</item>
     </style>
 
     <style name="Theme.FirstITE" parent="Base.Theme.FirstITE" />

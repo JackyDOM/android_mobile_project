@@ -1,194 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:id="@+id/containRelativelayout">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:id="@+id/firstRelativeLayout"
-            android:layout_marginLeft="20dp">
+            android:layout_margin="10dp"
+            android:id="@+id/containRelativelayout">
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="WELCOME TO OUR APP"
-                android:textStyle="bold"
-                android:textSize="16dp"
-                android:id="@+id/txtWelcome"
-                android:textColor="#419121"/>
+                android:layout_marginTop="30dp"
+                android:id="@+id/firstRelativeLayout"
+                android:layout_marginLeft="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:id="@+id/txtTime"
-                android:text="Sign up or log in to \nenjoy your time."/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WELCOME TO OUR APP"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:id="@+id/txtWelcome"
+                    android:textColor="#419121"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/txtTime"
+                    android:text="Sign up or log in to \nenjoy your time."/>
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/mky"
+                android:layout_toRightOf="@+id/firstRelativeLayout"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="23dp"/>
+
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@mipmap/mky"
-            android:layout_toRightOf="@+id/firstRelativeLayout"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="23dp"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/emailRelativeLayout"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/containRelativelayout">
-
-        <EditText
-            android:id="@+id/editTextEmail"
-            android:layout_width="390dp"
-            android:layout_height="60dp"
-            android:hint="Enter Address"
-            android:paddingLeft="30dp"
-            android:inputType="textEmailAddress"
-            android:layout_marginLeft="10dp"/> <!-- Adjust the margin as per your preference -->
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_email"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/passwordRelativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/emailRelativeLayout">
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_height="60dp"
-            android:layout_width="390dp"
-            android:paddingLeft="30dp"
-            android:inputType="textPassword"
-            android:layout_marginLeft="10dp"
-            android:hint="Password"/>
-
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/ic_password"
-            />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/signUpRelatveLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordRelativeLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp">
-
-        <Button
-            android:layout_width="150dp"
-            android:id="@+id/btnSignUp"
-            android:layout_height="60dp"
-            android:layout_marginRight="40dp"
-            android:backgroundTint="#53b7ed"
-            android:text="SIGN IN"
-            android:onClick="signUpClick"/>
-
-        <Button
-            android:layout_width="150dp"
-            android:id="@+id/btnSignIn"
-            android:layout_height="60dp"
-            android:layout_toRightOf="@+id/btnSignUp"
-            android:backgroundTint="#e64b37"
-            android:text="SIGN UP"/>
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/txtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signUpRelatveLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:text="---------------------------------- OR Log in with ----------------------------------"
-        android:textColor="#a2a3a2"
-        android:textSize="15sp"/>
-
-    <RelativeLayout
-        android:id="@+id/GoogleRelativeLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtView"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true">
-
-<!--        <ImageView-->
-<!--            android:id="@+id/imageGoogle"-->
-<!--            android:layout_width="50dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:src="@mipmap/google1"/>-->
-
-        <Button
-            android:id="@+id/btnGoogleLogin"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Log in with Google"
-            android:textColor="@color/black"
-            android:backgroundTint="#5cedd5">
-        </Button>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/GoogleRelativeLayout"
-        android:layout_marginTop="190dp">
-
-        <TextView
-            android:id="@+id/txtCambodia"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="cambodia"/>
+            android:id="@+id/emailRelativeLayout"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/containRelativelayout">
 
-        <TextView
-            android:id="@+id/txtE_library"
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="390dp"
+                android:layout_height="60dp"
+                android:hint="Enter Address"
+                android:paddingLeft="30dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="10dp"/> <!-- Adjust the margin as per your preference -->
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_email"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passwordRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E-Library Ltd."
-            android:layout_toRightOf="@+id/txtCambodia"
-            android:layout_marginLeft="80dp"/>
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/emailRelativeLayout">
 
-        <TextView
-            android:id="@+id/txtTosRan1"
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_height="60dp"
+                android:layout_width="390dp"
+                android:paddingLeft="30dp"
+                android:inputType="textPassword"
+                android:layout_marginLeft="10dp"
+                android:hint="Password"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_password"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/signUpRelatveLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/txtE_library"
-            android:text="Tos Ran"
-            android:layout_marginLeft="70dp"/>
+            android:layout_below="@+id/passwordRelativeLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp">
+
+            <Button
+                android:layout_width="150dp"
+                android:id="@+id/btnSignUp"
+                android:layout_height="60dp"
+                android:layout_marginRight="40dp"
+                android:backgroundTint="#53b7ed"
+                android:text="SIGN IN"
+                android:onClick="signUpClick"/>
+
+            <Button
+                android:layout_width="150dp"
+                android:id="@+id/btnSignIn"
+                android:layout_height="60dp"
+                android:layout_toRightOf="@+id/btnSignUp"
+                android:backgroundTint="#e64b37"
+                android:text="SIGN UP"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signUpRelatveLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="---------------------------------- OR Log in with ----------------------------------"
+            android:textColor="#a2a3a2"
+            android:textSize="15sp"/>
+
+        <RelativeLayout
+            android:id="@+id/GoogleRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtView"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true">
+
+            <!--        <ImageView-->
+            <!--            android:id="@+id/imageGoogle"-->
+            <!--            android:layout_width="50dp"-->
+            <!--            android:layout_height="50dp"-->
+            <!--            android:src="@mipmap/google1"/>-->
+
+            <Button
+                android:id="@+id/btnGoogleLogin"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Log in with Google"
+                android:textColor="@color/black"
+                android:backgroundTint="#5cedd5">
+            </Button>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/GoogleRelativeLayout"
+            android:layout_marginTop="120dp">
+
+            <TextView
+                android:id="@+id/txtCambodia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="cambodia"/>
+
+            <TextView
+                android:id="@+id/txtE_library"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-Library Ltd."
+                android:layout_toRightOf="@+id/txtCambodia"
+                android:layout_marginLeft="80dp"/>
+
+            <TextView
+                android:id="@+id/txtTosRan1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txtE_library"
+                android:text="Tos Ran"
+                android:layout_marginLeft="70dp"/>
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 
 
-</RelativeLayout>
+</ScrollView>
