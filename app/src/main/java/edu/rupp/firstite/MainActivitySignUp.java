@@ -35,8 +35,6 @@ public class MainActivitySignUp extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivityHomeScreen.class);
         startActivity(intent);
     }
-
-
     public void backSignInActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
