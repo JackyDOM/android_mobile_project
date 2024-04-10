@@ -15,40 +15,40 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/_10dp"
             android:id="@+id/containRelativelayout">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/_30dp"
                 android:id="@+id/firstRelativeLayout"
-                android:layout_marginLeft="20dp">
+                android:layout_marginLeft="@dimen/_20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="WELCOME TO OUR APP"
+                    android:text="@string/welcome_to_our_app"
                     android:textStyle="bold"
                     android:textSize="16dp"
                     android:id="@+id/txtWelcome"
-                    android:textColor="#419121"/>
+                    android:textColor="@color/green_dark"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/_20dp"
                     android:id="@+id/txtTime"
-                    android:text="Sign up or log in to \nenjoy your time."/>
+                    android:text="@string/sign_up_or_log_in_to_nenjoy_your_time"/>
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/_80dp"
+                android:layout_height="@dimen/_80dp"
                 android:src="@mipmap/mky"
                 android:layout_toRightOf="@+id/firstRelativeLayout"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="23dp"/>
+                android:layout_marginLeft="@dimen/_100dp"
+                android:layout_marginTop="@dimen/_23dp"/>
 
         </RelativeLayout>
 
@@ -56,24 +56,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/emailRelativeLayout"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/_50dp"
             android:layout_below="@+id/containRelativelayout">
 
             <EditText
                 android:id="@+id/editTextEmail"
-                android:layout_width="390dp"
-                android:layout_height="60dp"
-                android:hint="Enter Address"
-                android:paddingLeft="30dp"
+                android:layout_width="@dimen/_390dp"
+                android:layout_height="@dimen/_60dp"
+                android:hint="@string/enter_address"
+                android:paddingLeft="@dimen/_30dp"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="10dp"/> <!-- Adjust the margin as per your preference -->
+                android:layout_marginLeft="@dimen/_10dp"/> <!-- Adjust the margin as per your preference -->
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="@dimen/_15dp"
                 android:src="@drawable/ic_email"/>
         </RelativeLayout>
 
@@ -81,24 +81,24 @@
             android:id="@+id/passwordRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/_30dp"
             android:layout_below="@+id/emailRelativeLayout">
 
             <EditText
                 android:id="@+id/editTextPassword"
-                android:layout_height="60dp"
-                android:layout_width="390dp"
-                android:paddingLeft="30dp"
+                android:layout_height="@dimen/_60dp"
+                android:layout_width="@dimen/_390dp"
+                android:paddingLeft="@dimen/_30dp"
                 android:inputType="textPassword"
-                android:layout_marginLeft="10dp"
-                android:hint="Password"/>
+                android:layout_marginLeft="@dimen/_10dp"
+                android:hint="@string/password"/>
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="@dimen/_20dp"
+                android:layout_height="@dimen/_20dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="@dimen/_15dp"
                 android:src="@drawable/ic_password"
                 />
         </RelativeLayout>
@@ -109,24 +109,24 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/passwordRelativeLayout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="@dimen/_50dp">
 
             <Button
                 android:layout_width="150dp"
                 android:id="@+id/btnSignUp"
-                android:layout_height="60dp"
-                android:layout_marginRight="40dp"
-                android:backgroundTint="#53b7ed"
-                android:text="SIGN IN"
+                android:layout_height="@dimen/_60dp"
+                android:layout_marginRight="@dimen/_40dp"
+                android:backgroundTint="@color/light_blue"
+                android:text="@string/sign_in"
                 android:onClick="signUpClick"/>
 
             <Button
                 android:layout_width="150dp"
                 android:id="@+id/btnSignIn"
-                android:layout_height="60dp"
+                android:layout_height="@dimen/_60dp"
                 android:layout_toRightOf="@+id/btnSignUp"
-                android:backgroundTint="#e64b37"
-                android:text="SIGN UP"/>
+                android:backgroundTint="@color/red"
+                android:text="@string/sign_up"/>
 
         </RelativeLayout>
 
@@ -136,10 +136,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/signUpRelatveLayout"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:text="---------------------------------- OR Log in with ----------------------------------"
-            android:textColor="#a2a3a2"
-            android:textSize="15sp"/>
+            android:layout_marginTop="@dimen/_40dp"
+            android:text="@string/or_log_in_with"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/_15sp"/>
 
         <RelativeLayout
             android:id="@+id/GoogleRelativeLayout"
@@ -149,19 +149,13 @@
             android:layout_marginTop="50dp"
             android:layout_centerHorizontal="true">
 
-            <!--        <ImageView-->
-            <!--            android:id="@+id/imageGoogle"-->
-            <!--            android:layout_width="50dp"-->
-            <!--            android:layout_height="50dp"-->
-            <!--            android:src="@mipmap/google1"/>-->
-
             <Button
                 android:id="@+id/btnGoogleLogin"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Log in with Google"
+                android:text="@string/log_in_with_google"
                 android:textColor="@color/black"
-                android:backgroundTint="#5cedd5">
+                android:backgroundTint="@color/banana_color">
             </Button>
         </RelativeLayout>
 
@@ -175,29 +169,25 @@
                 android:id="@+id/txtCambodia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="cambodia"/>
+                android:layout_marginLeft="@dimen/_30dp"
+                android:text="@string/cambodia"/>
 
             <TextView
                 android:id="@+id/txtE_library"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="E-Library Ltd."
+                android:text="@string/e_library_ltd"
                 android:layout_toRightOf="@+id/txtCambodia"
-                android:layout_marginLeft="80dp"/>
+                android:layout_marginLeft="@dimen/_80dp"/>
 
             <TextView
                 android:id="@+id/txtTosRan1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/txtE_library"
-                android:text="Tos Ran"
-                android:layout_marginLeft="70dp"/>
+                android:text="@string/tos_ran"
+                android:layout_marginLeft="@dimen/_70dp"/>
 
         </RelativeLayout>
-
-
     </RelativeLayout>
-
-
 </ScrollView>

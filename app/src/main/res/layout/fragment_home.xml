@@ -27,104 +27,104 @@
             <!-- Display the GenderBook -->
             <LinearLayout
                 android:id="@+id/linearGenderBook"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_50dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="@dimen/_50dp">
 
                 <TextView
-                    android:layout_marginLeft="10dp"
-                    android:padding="5dp"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:padding="@dimen/_5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GenderBook"
+                    android:text="@string/genderbook"
                     android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="@dimen/_25sp"/>
 
                 <Space
-                    android:layout_width="120dp"
+                    android:layout_width="@dimen/_120dp"
                     android:layout_height="wrap_content"/>
 
                 <Button
                     android:id="@+id/btnGenderalBook"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:text="See All"
+                    android:layout_height="@dimen/_50dp"
+                    android:text="@string/see_all"
                     android:backgroundTint="@color/white"
-                    android:textColor="#164387"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/_164387"
+                    android:textSize="@dimen/_20dp"/>
 
             </LinearLayout>
             <!-- ScrollView -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="14dp">
+                android:layout_height="@dimen/_200dp"
+                android:layout_marginTop="@dimen/_14dp">
 
                 <!-- Your ScrollView content goes here -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="@dimen/_15dp">
 
                     <!-- Add your content views here -->
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/imgGeneralBook"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:id="@+id/txtGeneralBook"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginLeft="@dimen/_15dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginLeft="@dimen/_15dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -132,102 +132,102 @@
 
             <!-- Display the comdyBook -->
             <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_80dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="@dimen/_50dp">
 
                 <TextView
-                    android:layout_marginLeft="10dp"
-                    android:padding="5dp"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:padding="@dimen/_5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ComdyBook"
                     android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="@dimen/_25sp"/>
 
                 <Space
-                    android:layout_width="120dp"
+                    android:layout_width="@dimen/_120dp"
                     android:layout_height="wrap_content"/>
 
                 <Button
                     android:id="@+id/btnComdyBook"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:text="See All"
+                    android:layout_height="@dimen/_50dp"
+                    android:text="@string/see_all"
                     android:backgroundTint="@color/white"
-                    android:textColor="#164387"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/_164387"
+                    android:textSize="@dimen/_20sp"/>
 
             </LinearLayout>
             <!-- ScrollView -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="14dp">
+                android:layout_height="@dimen/_200dp"
+                android:layout_marginTop="@dimen/_14dp">
 
                 <!-- Your ScrollView content goes here -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="@dimen/_15dp">
 
                     <!-- Add your content views here -->
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginLeft="@dimen/_15dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginLeft="@dimen/_15dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -235,102 +235,102 @@
 
             <!-- Display the comdyBook -->
             <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_80dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="@dimen/_50dp">
 
                 <TextView
-                    android:layout_marginLeft="10dp"
-                    android:padding="5dp"
+                    android:layout_marginLeft="@dimen/_10dp"
+                    android:padding="@dimen/_5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ComicBook"
+                    android:text="@string/comicbook"
                     android:textStyle="bold"
-                    android:textSize="25sp"/>
+                    android:textSize="@dimen/_25sp"/>
 
                 <Space
-                    android:layout_width="120dp"
+                    android:layout_width="@dimen/_120dp"
                     android:layout_height="wrap_content"/>
 
                 <Button
                     android:id="@+id/btnComicBook"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:text="See All"
+                    android:layout_height="@dimen/_50dp"
+                    android:text="@string/see_all"
                     android:backgroundTint="@color/white"
-                    android:textColor="#164387"
-                    android:textSize="20sp"/>
+                    android:textColor="@color/_164387"
+                    android:textSize="@dimen/_20sp"/>
 
             </LinearLayout>
             <!-- ScrollView -->
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="14dp">
+                android:layout_height="@dimen/_200dp"
+                android:layout_marginTop="@dimen/_14dp">
 
                 <!-- Your ScrollView content goes here -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:padding="@dimen/_15dp">
 
                     <!-- Add your content views here -->
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginLeft="@dimen/_15dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="150dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="#c3c7c7"
+                        android:layout_width="@dimen/_200dp"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginLeft="@dimen/_15dp"
+                        android:background="@color/c3c7c7"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="@dimen/_100dp"
+                            android:layout_height="@dimen/_100dp"
                             android:src="@drawable/android" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Hello" />
+                            android:text="@string/hello" />
                     </LinearLayout>
 
                 </LinearLayout>

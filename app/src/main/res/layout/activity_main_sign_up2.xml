@@ -17,25 +17,25 @@
             android:id="@+id/SignUpEmailRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="@dimen/_40dp">
 
             <TextView
                 android:id="@+id/txtViewEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="13dp"
-                android:text="Email Address*"
-                android:textSize="17sp"
-                android:textColor="#31bd5b"/>
+                android:layout_marginLeft="@dimen/_13dp"
+                android:text="@string/email_address_signUp"
+                android:textSize="@dimen/_17sp"
+                android:textColor="@color/_31bd5b"/>
 
             <EditText
                 android:id="@+id/editTextEmail"
-                android:layout_marginTop="30dp"
-                android:layout_width="390dp"
-                android:layout_height="60dp"
-                android:hint="Enter Address"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_width="@dimen/_390dp"
+                android:layout_height="@dimen/_60dp"
+                android:hint="@string/enter_address_input_SignUp"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="@dimen/_10dp"/>
 
         </RelativeLayout>
 
@@ -44,23 +44,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SignUpEmailRelativeLayout"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="@dimen/_50dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="13dp"
-                android:text="Email Password*"
-                android:textSize="17sp"
-                android:textColor="#31bd5b"/>
+                android:layout_marginLeft="@dimen/_13dp"
+                android:text="@string/email_password_signUp"
+                android:textSize="@dimen/_17sp"
+                android:textColor="@color/_31bd5b"/>
 
             <EditText
-                android:layout_marginTop="30dp"
-                android:layout_width="390dp"
-                android:layout_height="60dp"
-                android:hint="Enter Address"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_width="@dimen/_390dp"
+                android:layout_height="@dimen/_60dp"
+                android:hint="@string/enter_address_signUp"
                 android:inputType="textPassword"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="@dimen/_10dp"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -68,23 +68,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SignUpEmailRelativeLayout2"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="@dimen/_50dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="13dp"
+                android:layout_marginLeft="@dimen/_13dp"
                 android:text="Comfirm Password*"
-                android:textSize="17sp"
-                android:textColor="#31bd5b"/>
+                android:textSize="@dimen/_17sp"
+                android:textColor="@color/_31bd5b"/>
 
             <EditText
-                android:layout_marginTop="30dp"
-                android:layout_width="390dp"
-                android:layout_height="60dp"
-                android:hint="Comfirm Password"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_width="@dimen/_390dp"
+                android:layout_height="@dimen/_60dp"
+                android:hint="@string/comfirm_password_input_signUp"
                 android:inputType="textPassword"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="@dimen/_10dp"/>
         </RelativeLayout>
 
         <TextView
@@ -92,55 +92,53 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SignUpEmailRelativeLayout4"
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="16sp"
-            android:textColor="#838584"
-            android:text="By Sign up, I agree to the Terms Of Use and privancy\nPolicy of Our App."/>
+            android:layout_marginTop="@dimen/_60dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/_838584"
+            android:text="@string/text_signUp"/>
 
         <TextView
             android:id="@+id/txtFullDescription1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtViewDescription"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="60dp"
-            android:textSize="16sp"
-            android:textColor="#838584"
-            android:text="E-Library collects and processes your email address\n
-for maketing purpose. You can easily read the books\n and can buy the book
-as well whatever you want to buy or read it. THANK YOU!"/>
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_60dp"
+            android:textSize="@dimen/_16sp"
+            android:textColor="@color/_838584"
+            android:text="@string/long_txt_SignUp"/>
 
         <Button
             android:id="@+id/SignUpButton123"
-            android:layout_width="400dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/_400dp"
+            android:layout_height="@dimen/_60dp"
             android:layout_below="@+id/txtFullDescription1"
-            android:layout_marginTop="60dp"
-            android:textSize="20dp"
+            android:layout_marginTop="@dimen/_60dp"
+            android:textSize="@dimen/_20sp"
             android:layout_centerHorizontal="true"
-            android:text="SIGN UP"/>
+            android:text="@string/sign_up"/>
 
         <LinearLayout
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_width="@dimen/_300dp"
+            android:layout_height="@dimen/_50dp"
             android:layout_below="@+id/SignUpButton123"
             android:orientation="horizontal">
 
             <TextView
-                android:textSize="17sp"
-                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/_17sp"
+                android:layout_marginLeft="@dimen/_10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="already have account?"/>
+                android:text="@string/already_have_account"/>
 
             <Button
                 android:id="@+id/btnSignInBack"
-                android:layout_width="100dp"
-                android:layout_height="60dp"
-                android:text="Sign in"
+                android:layout_width="@dimen/_100dp"
+                android:layout_height="@dimen/_60dp"
+                android:text="@string/sign_in"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/black"/>
         </LinearLayout>

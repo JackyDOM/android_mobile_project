@@ -6,27 +6,26 @@
     <RelativeLayout
         android:id="@+id/parentAppBar"
         android:layout_width="match_parent"
-        android:background="#e1e3e1"
-        android:layout_height="60dp">
+        android:background="@color/e1e3e1"
+        android:layout_height="@dimen/_60dp">
 
         <ImageView
-            android:layout_width="70dp"
-            android:layout_height="90dp"
+            android:layout_width="@dimen/_70dp"
+            android:layout_height="@dimen/_90dp"
             android:id="@+id/imgLogoELibrary"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/_10dp"
             android:src="@mipmap/logo"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:layout_marginLeft="@dimen/_5dp"
             android:layout_toRightOf="@+id/imgLogoELibrary"
-            android:textSize="25sp"
-            android:textColor="#099e0e"
+            android:textSize="@dimen/_25sp"
+            android:textColor="@color/_099e0e"
             android:fontFamily="@font/robotbold"
-            android:text="E-Library"/>
+            android:text="@string/e_library"/>
 
     </RelativeLayout>
-
 </RelativeLayout>

@@ -3,4 +3,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#16c763</color>
+    <color name="light_blue">#53b7ed</color>
+    <color name="red">#e64b37</color>
+    <color name="banana_color">#5cedd5</color>
+    <color name="green_dark">#419121</color>
+    <color name="light_grey">#a2a3a2</color>
+    <color name="_31bd5b">#31bd5b</color>
+    <color name="_838584">#838584</color>
+    <color name="e1e3e1">#e1e3e1</color>
+    <color name="_099e0e">#099e0e</color>
+    <color name="_164387">#164387</color>
+    <color name="c3c7c7">#c3c7c7</color>
 </resources>

@@ -2,4 +2,28 @@
     <string name="app_name">firstITE</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_to_our_app">WELCOME TO OUR APP</string>
+    <string name="sign_up_or_log_in_to_nenjoy_your_time">Sign up or log in to \nenjoy your time.</string>
+    <string name="enter_address">Enter Address</string>
+    <string name="password">Password</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="or_log_in_with">---------------------------------- OR Log in with ----------------------------------</string>
+    <string name="log_in_with_google">Log in with Google</string>
+    <string name="cambodia">cambodia</string>
+    <string name="e_library_ltd">E-Library Ltd.</string>
+    <string name="tos_ran">Tos Ran</string>
+    <string name="enter_address_signUp">Enter Password</string>
+    <string name="email_address_signUp">Email Address*</string>
+    <string name="enter_address_input_SignUp">Enter Address</string>
+    <string name="email_password_signUp">Email Password*</string>
+    <string name="comfirm_password_input_signUp">Comfirm Password</string>
+    <string name="text_signUp">By Sign up, I agree to the Terms Of Use and privancy\nPolicy of Our App.</string>
+    <string name="long_txt_SignUp">E-Library collects and processes your email address\n for maketing purpose. You can easily read the books\n and can buy the book as well whatever you want to buy or read it. THANK YOU!</string>
+    <string name="already_have_account">already have account?</string>
+    <string name="e_library">E-Library</string>
+    <string name="genderbook">GenderBook</string>
+    <string name="see_all">See All</string>
+    <string name="hello">Hello</string>
+    <string name="comicbook">ComicBook</string>
 </resources>
