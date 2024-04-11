@@ -11,19 +11,19 @@
         android:id="@+id/navSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_favorite_border_24"
-        android:title="Favorite" />
+        android:icon="@drawable/baseline_person_3_24"
+        android:title="Author" />
     <item
         android:id="@+id/navNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/baseline_notifications_24"
-        android:title="Setting" />
+        android:icon="@drawable/baseline_favorite_border_24"
+        android:title="Favorite" />
     <item
         android:id="@+id/navContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:icon="@drawable/baseline_contacts_24"
-        android:title="Contact" />
+        android:title="Logout" />
 
 </menu>

@@ -26,4 +26,6 @@
     <string name="see_all">See All</string>
     <string name="hello">Hello</string>
     <string name="comicbook">ComicBook</string>
+    <string name="author_s_list">Author\'s List</string>
+    <string name="logout">Logout</string>
 </resources>
