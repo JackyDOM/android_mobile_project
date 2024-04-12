@@ -35,7 +35,7 @@ public class MainActivityHomeScreen extends AppCompatActivity {
                 } else if (itemId == R.id.navSearch) {
                     loadFragment(new AuthorFragment(), false);
                 } else if (itemId == R.id.navNotification) {
-                    loadFragment(new FavoriteFragment(), false);
+                    loadFragment(new SearchFragment(), false);
                 }else{
                     loadFragment(new LogoutFragment(), false);
                 }
