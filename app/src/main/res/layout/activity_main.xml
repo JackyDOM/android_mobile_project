@@ -63,9 +63,9 @@
                 android:id="@+id/editTextEmail"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
-                android:hint="@string/enter_address"
+                android:hint="username"
                 android:paddingLeft="@dimen/_30dp"
-                android:inputType="textEmailAddress"
+                android:inputType="textPersonName"
                 android:layout_marginLeft="@dimen/_10dp"/> <!-- Adjust the margin as per your preference -->
 
             <ImageView
@@ -113,7 +113,7 @@
 
             <Button
                 android:layout_width="150dp"
-                android:id="@+id/btnSignUp"
+                android:id="@+id/btnSignIn"
                 android:layout_height="@dimen/_60dp"
                 android:layout_marginRight="@dimen/_40dp"
                 android:backgroundTint="@color/light_blue"
@@ -122,9 +122,9 @@
 
             <Button
                 android:layout_width="150dp"
-                android:id="@+id/btnSignIn"
+                android:id="@+id/btnSignUp"
                 android:layout_height="@dimen/_60dp"
-                android:layout_toRightOf="@+id/btnSignUp"
+                android:layout_toRightOf="@+id/btnSignIn"
                 android:backgroundTint="@color/red"
                 android:text="@string/sign_up"/>
 
