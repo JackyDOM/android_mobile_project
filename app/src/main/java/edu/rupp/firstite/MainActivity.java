@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         AuthRequest request = new AuthRequest(username, password);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/auth/")
+                .baseUrl("http://10.0.2.2:5000/auth/login")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("login")
+        @POST("/auth/login")
         Call<AuthResponse> login(@Body AuthRequest request);
     }
 }
