@@ -1,6 +1,7 @@
 package edu.rupp.firstite;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,18 +23,23 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button;
     private Button buttonSignIn;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
         buttonSignIn = findViewById(R.id.btnSignIn);
         button = findViewById(R.id.btnSignUp);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { authenticateUser(); }
+            public void onClick(View v) {
+                authenticateUser();
+            }
         });
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         AuthRequest request = new AuthRequest(username, password);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/auth/login")
+                .baseUrl("http://10.0.2.2:5000/") // Base URL without the endpoint
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -78,6 +84,16 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
                     Log.d("SignIn", "Access Token: " + accessToken);
 
+                    // Store the access token in SharedPreferences
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("access_token", accessToken);
+                    editor.apply();
+
+                    // Retrieve the access token from SharedPreferences
+                    String storedToken = sharedPreferences.getString("access_token", null);
+                    Log.d("SignIn", "Stored Access Token: " + storedToken);
+
+                    // Example usage: If you want to navigate to HomeFragment after successful sign-in
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentHome, new HomeFragment())
                             .commit();
@@ -119,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("http://10.0.2.2:5000/auth/login")
+        @POST("auth/login") // Endpoint only
         Call<AuthResponse> login(@Body AuthRequest request);
     }
 }
