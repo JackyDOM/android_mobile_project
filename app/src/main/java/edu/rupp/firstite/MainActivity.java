@@ -2,6 +2,7 @@ package edu.rupp.firstite;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                authenticateUser();
-            }
+            public void onClick(View v) { authenticateUser(); }
         });
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        Log.d("SignIn", "Username: " + username + ", Password: " + password);
+
         AuthRequest request = new AuthRequest(username, password);
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -75,20 +76,21 @@ public class MainActivity extends AppCompatActivity {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
                     Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
-                    System.out.println("Access Token: " + accessToken);
+                    Log.d("SignIn", "Access Token: " + accessToken);
 
-                    // Navigate to HomeFragment
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentHome, new HomeFragment())
                             .commit();
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                    Log.e("SignIn", "Failed to sign in: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                Log.e("SignIn", "Failed to sign in", t);
             }
         });
     }
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("/auth/login")
+        @POST("http://10.0.2.2:5000/auth/login")
         Call<AuthResponse> login(@Body AuthRequest request);
     }
 }
