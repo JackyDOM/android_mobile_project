@@ -27,12 +27,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonSignIn = (Button) findViewById(R.id.btnSignIn);
-        button = (Button) findViewById(R.id.btnSignUp);
+        buttonSignIn = findViewById(R.id.btnSignIn);
+        button = findViewById(R.id.btnSignUp);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { authenticateUser(); }
+            public void onClick(View v) {
+                authenticateUser();
+            }
         });
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         AuthRequest request = new AuthRequest(username, password);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/auth/login")
+                .baseUrl("http://10.0.2.2:5000/auth/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -75,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
                     System.out.println("Access Token: " + accessToken);
 
-                    // Replace the current fragment with HomeFragment
+                    // Navigate to HomeFragment
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragmentHome, new HomeFragment())
                             .commit();
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("http://10.0.2.2:5000/auth/login")
+        @POST("login")
         Call<AuthResponse> login(@Body AuthRequest request);
     }
 }
