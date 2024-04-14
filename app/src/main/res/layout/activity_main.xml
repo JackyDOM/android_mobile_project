@@ -65,7 +65,7 @@
                 android:layout_height="@dimen/_60dp"
                 android:hint="username"
                 android:paddingLeft="@dimen/_30dp"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:layout_marginLeft="@dimen/_10dp"/> <!-- Adjust the margin as per your preference -->
 
             <ImageView

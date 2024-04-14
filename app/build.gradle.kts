@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "edu.rupp.firstite"
-        minSdk = 24
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

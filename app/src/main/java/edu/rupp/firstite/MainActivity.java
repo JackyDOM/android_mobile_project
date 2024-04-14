@@ -94,9 +94,13 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("SignIn", "Stored Access Token: " + storedToken);
 
                     // Example usage: If you want to navigate to HomeFragment after successful sign-in
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragmentHome, new HomeFragment())
-                            .commit();
+//                    getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.fragmentHome, new HomeFragment())
+//                            .commit();
+                    Intent intent_success = new Intent(MainActivity.this, MainActivityHomeScreen.class);
+                    intent_success.putExtra("username", username); // Pass the username to MainActivityHomeScreen
+                    startActivity(intent_success);
+
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
                     Log.e("SignIn", "Failed to sign in: " + response.message());

@@ -29,11 +29,11 @@
                 android:textColor="@color/_31bd5b"/>
 
             <EditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/editTextEmailSignUp"
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
-                android:hint="@string/enter_address_input_SignUp"
+                android:hint="username"
                 android:inputType="textEmailAddress"
                 android:layout_marginLeft="@dimen/_10dp"/>
 
@@ -55,6 +55,7 @@
                 android:textColor="@color/_31bd5b"/>
 
             <EditText
+                android:id="@+id/editTextPasswordSignUp"
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
@@ -74,16 +75,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_13dp"
-                android:text="Comfirm Password*"
+                android:text="Gender*"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
 
             <EditText
+                android:id="@+id/editTextConfirmPassword"
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
-                android:hint="@string/comfirm_password_input_signUp"
-                android:inputType="textPassword"
+                android:hint="Gender"
+                android:inputType="textPersonName"
                 android:layout_marginLeft="@dimen/_10dp"/>
         </RelativeLayout>
 
