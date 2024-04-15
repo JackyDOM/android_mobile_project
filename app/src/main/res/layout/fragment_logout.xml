@@ -3,26 +3,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchFragment">
+    tools:context=".SearchFragment"
+    android:orientation="vertical">
 
 
     <!-- Include your toolbar layout -->
-    <include
-        android:id="@+id/includeToolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/textViewUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:padding="16dp"
-        android:textColor="@android:color/black"
-        android:text="Welcome" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/avarta1"/>
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/textViewUsername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:textColor="@android:color/black"
+                android:text="Welcome" />
+
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:padding="10dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_width="400dp"
+                android:layout_height="80dp">
+
+                <Button
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/btnLogout"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:text="Logout"
+                    android:textSize="18sp"
+                    android:backgroundTint="@color/red"
+                    />
+
+                <Button
+                    android:layout_marginTop="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/btnYourbook"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:text="Books"
+                    android:textSize="18sp"
+                    android:backgroundTint="@color/light_blue"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </FrameLayout>

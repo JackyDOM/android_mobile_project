@@ -50,23 +50,24 @@ public class MainActivitySignUp extends AppCompatActivity {
     }
 
     public void authenticateUserSignUp() {
-        EditText edtTextEmailSignUp = findViewById(R.id.editTextEmailSignUp);
-        EditText edtTextPasswordSignUp = findViewById(R.id.editTextPasswordSignUp);
-        EditText edtConfirmPasswordSignUp = findViewById(R.id.editTextConfirmPassword);
+        EditText editTextUsername = findViewById(R.id.editTextUsernameSignUp);
+        EditText editTextEmail = findViewById(R.id.editTextEmailSignUp);
+        EditText editTextPassword = findViewById(R.id.editTextPasswordSignUp);
+        EditText editTextGender = findViewById(R.id.editTextGender);
 
-        String username = edtTextEmailSignUp.getText().toString().trim();
-        String password = edtTextPasswordSignUp.getText().toString().trim();
-        String confirmPassword = edtConfirmPasswordSignUp.getText().toString().trim();
+        String username = editTextUsername.getText().toString().trim();
+        String email = editTextEmail.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
+        String gender = editTextGender.getText().toString().trim();
 
-
-        if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            Toast.makeText(MainActivitySignUp.this, "Username or password cannot be empty", Toast.LENGTH_LONG).show();
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty() || gender.isEmpty()) {
+            Toast.makeText(MainActivitySignUp.this, "All fields cannot be empty", Toast.LENGTH_LONG).show();
             return;
         }
 
-        Log.d("SignUp", "Username: " + username + ", Password: " + password + ", Confirm Password: " + confirmPassword);
+        Log.d("SignUp", "Username: " + username + ", email: " + email + ", password: " + password + ", gender: " + gender);
 
-        AuthRequest request = new AuthRequest(username, password, confirmPassword); // Remove MainActivitySignUp from AuthRequest
+        AuthRequest request = new AuthRequest(username, email, password, gender); // Remove MainActivitySignUp from AuthRequest
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:5000/") // Base URL without the endpoint
@@ -120,13 +121,16 @@ public class MainActivitySignUp extends AppCompatActivity {
 
     public static class AuthRequest {
         private String username;
-        private String password;
-        private String confirmPassword;
 
-        public AuthRequest(String username, String password, String confirmPassword) {
+        private String email;
+        private String password;
+        private String gender;
+
+        public AuthRequest(String username, String email, String password, String gender) {
             this.username = username;
+            this.email = email;
             this.password = password;
-            this.confirmPassword = confirmPassword;
+            this.gender = gender;
         }
     }
 

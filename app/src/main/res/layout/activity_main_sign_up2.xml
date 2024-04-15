@@ -14,6 +14,34 @@
         tools:context=".MainActivitySignUp">
 
         <RelativeLayout
+            android:id="@+id/SignUpUsernameRelativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40dp">
+
+            <TextView
+                android:id="@+id/txtViewUsernameAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_13dp"
+                android:text="UserName"
+                android:textSize="@dimen/_17sp"
+                android:textColor="@color/_31bd5b"/>
+
+            <EditText
+                android:id="@+id/editTextUsernameSignUp"
+                android:layout_marginTop="@dimen/_30dp"
+                android:layout_width="@dimen/_390dp"
+                android:layout_height="@dimen/_60dp"
+                android:hint="username"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="@dimen/_10dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_below="@+id/SignUpUsernameRelativeLayout"
             android:id="@+id/SignUpEmailRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_13dp"
-                android:text="@string/email_address_signUp"
+                android:text="Email Address*"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
 
@@ -33,7 +61,7 @@
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
-                android:hint="username"
+                android:hint="Email Address"
                 android:inputType="textEmailAddress"
                 android:layout_marginLeft="@dimen/_10dp"/>
 
@@ -80,7 +108,7 @@
                 android:textColor="@color/_31bd5b"/>
 
             <EditText
-                android:id="@+id/editTextConfirmPassword"
+                android:id="@+id/editTextGender"
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
