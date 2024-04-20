@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("auth/login") // Endpoint only
+        @POST("authorization/login") // Endpoint only
         Call<AuthResponse> login(@Body AuthRequest request);
     }
 }

@@ -143,7 +143,7 @@ public class MainActivitySignUp extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("auth/register") // Endpoint only
+        @POST("authorization/register") // Endpoint only
         Call<AuthResponse> register(@Body AuthRequest request); // Remove MainActivitySignUp from AuthRequest
     }
 

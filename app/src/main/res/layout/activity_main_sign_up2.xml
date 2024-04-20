@@ -162,7 +162,8 @@
                 android:layout_marginLeft="@dimen/_10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/already_have_account"/>
+                android:text="@string/already_have_account"
+                android:textColor="@color/black"/>
 
             <Button
                 android:id="@+id/btnSignInBack"
@@ -170,7 +171,7 @@
                 android:layout_height="@dimen/_60dp"
                 android:text="@string/sign_in"
                 android:backgroundTint="@color/white"
-                android:textColor="@color/black"/>
+                android:textColor="#050aa6"/>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

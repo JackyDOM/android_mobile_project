@@ -4,11 +4,14 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="toolbarStyle">@layout/toolbar</item>
+
     </style>
 
     <style name="ButtonWhiteBackground" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/button_background_white</item>
     </style>
 
-    <style name="Theme.FirstITE" parent="Base.Theme.FirstITE" />
+    <style name="Theme.FirstITE" parent="Base.Theme.FirstITE" >
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
 </resources>

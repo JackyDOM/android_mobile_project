@@ -39,7 +39,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20dp"
                     android:id="@+id/txtTime"
-                    android:text="@string/sign_up_or_log_in_to_nenjoy_your_time"/>
+                    android:text="@string/sign_up_or_log_in_to_nenjoy_your_time"
+                    android:textColor="@color/black"/>
             </RelativeLayout>
 
             <ImageView
@@ -66,7 +67,7 @@
                 android:hint="username"
                 android:paddingLeft="@dimen/_30dp"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="@dimen/_10dp"/> <!-- Adjust the margin as per your preference -->
+                android:layout_marginLeft="@dimen/_10dp" /> <!-- Adjust the margin as per your preference -->
 
             <ImageView
                 android:layout_width="@dimen/_20dp"
@@ -163,14 +164,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/GoogleRelativeLayout"
-            android:layout_marginTop="120dp">
+            android:layout_marginTop="200dp">
 
             <TextView
                 android:id="@+id/txtCambodia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_30dp"
-                android:text="@string/cambodia"/>
+                android:text="@string/cambodia"
+                android:textColor="#0b870f"/>
 
             <TextView
                 android:id="@+id/txtE_library"
@@ -178,7 +180,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/e_library_ltd"
                 android:layout_toRightOf="@+id/txtCambodia"
-                android:layout_marginLeft="@dimen/_80dp"/>
+                android:layout_marginLeft="@dimen/_80dp"
+                android:textColor="#0b870f"/>
 
             <TextView
                 android:id="@+id/txtTosRan1"
@@ -186,7 +189,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/txtE_library"
                 android:text="@string/tos_ran"
-                android:layout_marginLeft="@dimen/_70dp"/>
+                android:layout_marginLeft="@dimen/_70dp"
+                android:textColor="#0b870f"/>
 
         </RelativeLayout>
     </RelativeLayout>

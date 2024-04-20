@@ -31,7 +31,7 @@ public class LogoutFragment extends Fragment {
     private static final String BASE_URL = "http://10.0.2.2:5000/";
 
     interface YourApiInterface {
-        @POST("auth/logout")
+        @POST("authorization/logout")
         Call<JsonObject> logout(@Header("Authorization") String authorization);
     }
 
