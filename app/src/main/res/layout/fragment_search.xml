@@ -6,28 +6,46 @@
     tools:context=".LogoutFragment"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        tools:context=".AuthorFragment"
+        android:padding="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Searching"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="30dp"/>
+        <!-- Include your toolbar layout -->
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-        <SearchView
-            android:id="@+id/search_view"
-            android:layout_width="380dp"
+        <LinearLayout
+            android:layout_marginTop="60dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search..."
-            android:iconifiedByDefault="false"
-            android:background="@drawable/rounded_searchview_bg"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Searching"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="30dp"/>
+
+            <SearchView
+                android:id="@+id/search_view"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:queryHint="Search..."
+                android:iconifiedByDefault="false"
+                android:background="@drawable/rounded_searchview_bg"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+
 
 </FrameLayout>

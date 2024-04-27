@@ -15,7 +15,7 @@
         <!-- Include your toolbar layout -->
         <include
             android:id="@+id/includeToolbar"
-            layout="@layout/toolbar_author"
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -31,8 +31,7 @@
                 android:layout_height="150dp"
                 android:background="#c3c7c7"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:onClick="onImageClick" >
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="100dp"
@@ -46,7 +45,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:onClick="onImageClick"
                 android:layout_width="170dp"
                 android:layout_height="150dp"
                 android:background="#c3c7c7"

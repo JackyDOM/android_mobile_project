@@ -35,7 +35,6 @@
         <activity android:name=".BookGridActivity"/>
         <activity android:name=".BookDetailActivity"/>
         <activity android:name=".ToolbarActivity"/>
-        <activity android:name=".CartsActivity"/>
     </application>
 
 </manifest>
