@@ -1,342 +1,56 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/fragment_container">
+    android:layout_height="match_parent">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".HomeFragment">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <!-- Wrap include and ScrollView in LinearLayout with vertical orientation -->
-        <LinearLayout
+        <!-- Include your toolbar layout -->
+        <include
+            android:id="@+id/includeToolbar"
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" />
 
-            <!-- Include your toolbar layout -->
-            <include
-                android:id="@+id/includeToolbar"
-                layout="@layout/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-            <!-- Display the GenderBook -->
-            <LinearLayout
-                android:id="@+id/linearGenderBook"
-                android:layout_marginLeft="@dimen/_10dp"
-                android:layout_marginTop="@dimen/_50dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp">
+        <!-- Dot Indicator Layout -->
+        <LinearLayout
+            android:id="@+id/dotLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"/>
 
-                <TextView
-                    android:layout_marginLeft="@dimen/_10dp"
-                    android:padding="@dimen/_5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/genderbook"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_25sp"/>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="388dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-                <Space
-                    android:layout_width="@dimen/_120dp"
-                    android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GeneralBook"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20sp"/>
 
-                <Button
-                    android:id="@+id/btnGenderalBook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50dp"
-                    android:text="@string/see_all"
-                    android:backgroundTint="@color/white"
-                    android:textColor="@color/_164387"
-                    android:textSize="@dimen/_20dp"/>
-
-            </LinearLayout>
-            <!-- ScrollView -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_200dp"
-                android:layout_marginTop="@dimen/_14dp">
-
-                <!-- Your ScrollView content goes here -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_15dp">
-
-                    <!-- Add your content views here -->
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imgGeneralBook"
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:id="@+id/txtGeneralBook"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:layout_marginLeft="@dimen/_15dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:layout_marginLeft="@dimen/_15dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <!-- Display the comdyBook -->
-            <LinearLayout
-                android:layout_marginLeft="@dimen/_10dp"
-                android:layout_marginTop="@dimen/_80dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp">
-
-                <TextView
-                    android:layout_marginLeft="@dimen/_10dp"
-                    android:padding="@dimen/_5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ComdyBook"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_25sp"/>
-
-                <Space
-                    android:layout_width="@dimen/_120dp"
-                    android:layout_height="wrap_content"/>
-
-                <Button
-                    android:id="@+id/btnComdyBook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50dp"
-                    android:text="@string/see_all"
-                    android:backgroundTint="@color/white"
-                    android:textColor="@color/_164387"
-                    android:textSize="@dimen/_20sp"/>
-
-            </LinearLayout>
-            <!-- ScrollView -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_200dp"
-                android:layout_marginTop="@dimen/_14dp">
-
-                <!-- Your ScrollView content goes here -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_15dp">
-
-                    <!-- Add your content views here -->
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:layout_marginLeft="@dimen/_15dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:layout_marginLeft="@dimen/_15dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
-
-            <!-- Display the comdyBook -->
-            <LinearLayout
-                android:layout_marginLeft="@dimen/_10dp"
-                android:layout_marginTop="@dimen/_80dp"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp">
-
-                <TextView
-                    android:layout_marginLeft="@dimen/_10dp"
-                    android:padding="@dimen/_5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/comicbook"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/_25sp"/>
-
-                <Space
-                    android:layout_width="@dimen/_120dp"
-                    android:layout_height="wrap_content"/>
-
-                <Button
-                    android:id="@+id/btnComicBook"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50dp"
-                    android:text="@string/see_all"
-                    android:backgroundTint="@color/white"
-                    android:textColor="@color/_164387"
-                    android:textSize="@dimen/_20sp"/>
-
-            </LinearLayout>
-            <!-- ScrollView -->
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_200dp"
-                android:layout_marginTop="@dimen/_14dp">
-
-                <!-- Your ScrollView content goes here -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_15dp">
-
-                    <!-- Add your content views here -->
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:layout_marginLeft="@dimen/_15dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="@dimen/_200dp"
-                        android:layout_height="@dimen/_150dp"
-                        android:layout_marginLeft="@dimen/_15dp"
-                        android:background="@color/c3c7c7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="@dimen/_100dp"
-                            android:layout_height="@dimen/_100dp"
-                            android:src="@drawable/android" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hello" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
         </LinearLayout>
-    </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/recycleViewCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </ScrollView>

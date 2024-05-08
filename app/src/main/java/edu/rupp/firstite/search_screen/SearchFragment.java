@@ -1,4 +1,4 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.search_screen;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import edu.rupp.firstite.R;
 
 public class SearchFragment extends Fragment {
 

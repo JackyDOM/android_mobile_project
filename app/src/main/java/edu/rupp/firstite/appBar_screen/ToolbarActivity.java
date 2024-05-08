@@ -1,9 +1,11 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.appBar_screen;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import edu.rupp.firstite.R;
 
 public class ToolbarActivity extends AppCompatActivity {
 

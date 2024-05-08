@@ -1,4 +1,4 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.cart_screen;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import edu.rupp.firstite.R;
 
 public class CartFragment extends Fragment {
     @Nullable

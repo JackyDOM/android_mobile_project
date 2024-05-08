@@ -17,13 +17,13 @@
         android:theme="@style/Theme.FirstITE"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityHomeScreen"
+            android:name=".buttomNavigationBar.MainActivityHomeScreen"
             android:exported="false" />
         <activity
-            android:name=".MainActivitySignUp"
+            android:name=".signUp_Screen.MainActivitySignUp"
             android:exported="false" />
         <activity
-            android:name=".LogoActivity"
+            android:name=".Logo_screen.LogoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,10 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".BookGridActivity"/>
-        <activity android:name=".BookDetailActivity"/>
-        <activity android:name=".ToolbarActivity"/>
+        <activity android:name=".signIn_Screen.MainActivity"/>
+        <activity android:name=".appBar_screen.ToolbarActivity"/>
     </application>
 
 </manifest>

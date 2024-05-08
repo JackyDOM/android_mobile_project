@@ -1,10 +1,13 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.Logo_screen;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import edu.rupp.firstite.R;
+import edu.rupp.firstite.signIn_Screen.MainActivity;
 
 public class LogoActivity extends AppCompatActivity {
     @Override

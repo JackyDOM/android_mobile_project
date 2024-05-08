@@ -1,4 +1,4 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.signIn_Screen;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +11,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.rupp.firstite.Home_screen.HomeFragment;
+import edu.rupp.firstite.buttomNavigationBar.MainActivityHomeScreen;
+import edu.rupp.firstite.signUp_Screen.MainActivitySignUp;
+import edu.rupp.firstite.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -100,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent_success = new Intent(MainActivity.this, MainActivityHomeScreen.class);
                     intent_success.putExtra("username", username); // Pass the username to MainActivityHomeScreen
                     startActivity(intent_success);
+
+//                    HomeFragment homeFragment = new HomeFragment();
+//                    getSupportFragmentManager().beginTransaction()
+//                            .replace(R.id.fragment_container, homeFragment)
+//                            .commit();
 
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();

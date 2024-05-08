@@ -1,8 +1,7 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.logOut_screen;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,7 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
 
-import edu.rupp.firstite.MainActivity;
+import edu.rupp.firstite.R;
+import edu.rupp.firstite.signIn_Screen.MainActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

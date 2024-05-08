@@ -1,4 +1,4 @@
-package edu.rupp.firstite;
+package edu.rupp.firstite.buttomNavigationBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,13 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import edu.rupp.firstite.author_screen.AuthorFragment;
+import edu.rupp.firstite.cart_screen.CartFragment;
+import edu.rupp.firstite.Home_screen.HomeFragment;
+import edu.rupp.firstite.R;
+import edu.rupp.firstite.search_screen.SearchFragment;
+import edu.rupp.firstite.logOut_screen.LogoutFragment;
 
 public class MainActivityHomeScreen extends AppCompatActivity {
 
