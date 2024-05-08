@@ -24,12 +24,15 @@ import java.util.List;
 
 import edu.rupp.firstite.R;
 import edu.rupp.firstite.adapter.BannerAdaper;
+import edu.rupp.firstite.adapter.Category2Adapter;
 import edu.rupp.firstite.adapter.CategoryAdapter;
 import edu.rupp.firstite.databinding.FragmentHomeBinding;
 import edu.rupp.firstite.modals.Banner;
 import edu.rupp.firstite.modals.CategoryBanner1;
+import edu.rupp.firstite.modals.CategoryBanner2;
 import edu.rupp.firstite.service.ApiServiceBanner;
 import edu.rupp.firstite.service.ApiServiceCategory;
+import edu.rupp.firstite.service.ApiServiceCategory2;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,6 +45,8 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private BannerAdaper bannerAdaper;
     private CategoryAdapter categoryAdapter;
+
+    private Category2Adapter category2Adapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -61,13 +66,16 @@ public class HomeFragment extends Fragment {
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String retrievedAccessToken = sharedPreferences.getString("access_token", null);
 
-        if (retrievedAccessToken != null) {
+        if (retrievedAccessToken != null && !retrievedAccessToken.isEmpty()) {
             // Log the retrieved access token
             Log.d("AccessToken", "Retrieved Access Token: " + retrievedAccessToken);
+            // Store the retrieved access token for later use
+            accessToken = retrievedAccessToken;
         } else {
-            // Handle scenario where access token is not available
-            Toast.makeText(getContext(), "Access token not available", Toast.LENGTH_LONG).show();
+            // Handle scenario where access token is not available or empty
+            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
         }
+
 
         // Store the retrieved access token for later use
         accessToken = retrievedAccessToken;
@@ -76,6 +84,7 @@ public class HomeFragment extends Fragment {
         if (accessToken != null) {
             loadBannerImage();
             loadCategoryImage();
+            loadCategory2Image();
         }
 
         // Initialize BannerAdapter and set it to RecyclerView
@@ -89,6 +98,11 @@ public class HomeFragment extends Fragment {
         binding.recycleViewCategory.setLayoutManager(categoryLayoutManager);
         categoryAdapter = new CategoryAdapter();
         binding.recycleViewCategory.setAdapter(categoryAdapter);
+
+        LinearLayoutManager category2LayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        binding.recycleViewCategory2.setLayoutManager(category2LayoutManager); // Change this line
+        category2Adapter = new Category2Adapter(); // Change this line
+        binding.recycleViewCategory2.setAdapter(category2Adapter); // Change this line
 
         return binding.getRoot();
     }
@@ -190,6 +204,44 @@ public class HomeFragment extends Fragment {
             }
         });
 
+    }
+
+    private void loadCategory2Image(){
+        Retrofit httpClient = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:5000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiServiceCategory2 apiServiceCategory2 = httpClient.create(ApiServiceCategory2.class);
+        Call<List<CategoryBanner2>> task = apiServiceCategory2.loadCategory2Image("Bearer " + accessToken);
+        task.enqueue(new Callback<List<CategoryBanner2>>() {
+
+            @Override
+            public void onResponse(Call<List<CategoryBanner2>> call, Response<List<CategoryBanner2>> response) {
+                if(response.isSuccessful()){
+                    // Filter the response based on Category ID
+                    List<CategoryBanner2> categoryBanner2List = response.body();
+                    List<CategoryBanner2> filteredList = new ArrayList<>();
+                    // Iterate through the category list
+                    for(CategoryBanner2 category : categoryBanner2List){
+                        // Check if category ID equals 1
+                        if(category.getCategory().getId() == 2){
+                            // Add to filtered list if category ID is 1
+                            filteredList.add(category);
+                        }
+                    }
+
+                    // Update adapter data with filtered list
+                    category2Adapter.submitList(filteredList);
+                } else {
+                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<CategoryBanner2>> call, Throwable t) {
+                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 }
