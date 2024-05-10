@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_13dp"
-                android:text="@string/email_password_signUp"
+                android:text="Password 8"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
 
