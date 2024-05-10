@@ -9,13 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.databinding.FragmentHomeBinding;
+import edu.rupp.firstite.databinding.FragmentSearchBinding;
 
 public class SearchFragment extends Fragment {
+    FragmentSearchBinding binding;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        binding = FragmentSearchBinding.inflate(inflater, container, false);
+
+        return binding.getRoot();
     }
 }
