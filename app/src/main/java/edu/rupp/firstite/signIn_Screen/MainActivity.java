@@ -85,8 +85,10 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
+                    int userId = authResponse.getUserId(); // Get user_id here
                     Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
                     Log.d("SignIn", "Access Token: " + accessToken);
+                    Log.d("SignIn", "User ID: " + userId); // Print user_id
 
                     // Store the access token in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -141,9 +143,15 @@ public class MainActivity extends AppCompatActivity {
 
     public static class AuthResponse {
         private String access_token;
+        private int user_id; // Add user_id field
+
 
         public String getAccessToken() {
             return access_token;
+        }
+
+        public int getUserId() {
+            return user_id;
         }
     }
 

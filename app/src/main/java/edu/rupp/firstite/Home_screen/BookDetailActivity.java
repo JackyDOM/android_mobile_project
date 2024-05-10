@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,6 +33,10 @@ public class BookDetailActivity extends AppCompatActivity {
         String bookCategoryName = getIntent().getStringExtra("book_Category_Name");
         String authorName = getIntent().getStringExtra("author_name");
         String authorDecs = getIntent().getStringExtra("author_Decs");
+        int bookId = getIntent().getIntExtra("book_id",0); // Retrieve book_id
+
+        // Log the book_id
+        Log.d("SignIn", "Book ID: " + bookId);
 
         // Check if the price equals "free"
         if ("free".equalsIgnoreCase(bookPrice)) {
