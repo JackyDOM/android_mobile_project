@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Home_screen.BookDetailActivity"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/txtTitleDetail"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="40dp"/>
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/BookImageView"
+            android:layout_width="360dp"
+            android:layout_height="200dp"
+            android:src="@drawable/elibra"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="608dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_top_author"
+            android:orientation="vertical"
+            android:padding="@dimen/_20dp">
+
+            <TextView
+                android:id="@+id/txtPriceCategoryGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="price"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtpublisherCategoryGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="publisher"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/BookCategoryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category Name"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/BookAuthorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author Name"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/BookAuthorDecs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Decs"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/showMoreTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show more"
+                android:textColor="#2561ba"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <!-- Button for "Add to Cart" -->
+                <Button
+                    android:id="@+id/btnAddToCart"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add to Cart"
+                    android:visibility="gone" />
+
+                <!-- Button for "Add to Favorite" -->
+                <Button
+                    android:id="@+id/btnAddToFavorites"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add to Favorites"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+            <HorizontalScrollView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/BookImageView1"
+                        android:layout_width="360dp"
+                        android:layout_height="200dp"
+                        android:src="@drawable/elibra"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

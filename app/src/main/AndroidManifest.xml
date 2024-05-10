@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -13,9 +12,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.FirstITE"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".Home_screen.BookDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".author_screen.AuthorInformationActivity"
+            android:exported="false" />
         <activity
             android:name=".buttomNavigationBar.MainActivityHomeScreen"
             android:exported="false" />
@@ -31,8 +36,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signIn_Screen.MainActivity"/>
-        <activity android:name=".appBar_screen.ToolbarActivity"/>
+        <activity android:name=".signIn_Screen.MainActivity" />
+        <activity android:name=".appBar_screen.ToolbarActivity" />
     </application>
 
 </manifest>

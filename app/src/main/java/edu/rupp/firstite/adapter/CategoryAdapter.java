@@ -1,6 +1,8 @@
 package edu.rupp.firstite.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.rupp.firstite.Home_screen.BookDetailActivity;
+import edu.rupp.firstite.author_screen.AuthorInformationActivity;
 import edu.rupp.firstite.databinding.ViewHolderCategory1Binding;
 import edu.rupp.firstite.modals.CategoryBanner1;
 
@@ -62,6 +66,21 @@ public class CategoryAdapter extends ListAdapter<CategoryBanner1, CategoryAdapte
             // display the price
             String priceWithPrefix = "Price: " + categoryBanner1.getPrice() + " $";
             this.binding.txtPriceCategory.setText(priceWithPrefix);
+
+            binding.bannerImageCategory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), BookDetailActivity.class);
+                    intent.putExtra("book_image_url",categoryBanner1.getBook_image());
+                    intent.putExtra("book_title",categoryBanner1.getTitle());
+                    intent.putExtra("book_price", categoryBanner1.getPrice());
+                    intent.putExtra("book_publisher", categoryBanner1.getPublisher());
+                    intent.putExtra("book_Category_Name", categoryBanner1.getCategory().getName());
+                    intent.putExtra("author_name", categoryBanner1.getAuthor().getAuthor_name());
+                    intent.putExtra("author_Decs", categoryBanner1.getAuthor().getAuthor_decs());
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

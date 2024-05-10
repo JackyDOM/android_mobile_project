@@ -7,12 +7,29 @@ public class CategoryBanner1 {
     private int id;
     private String book_image;
     private String title;
-
     private String price;
+    private String publisher;
     private Category category;
+    private Author author;
 
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
     public Category getCategory() {
         return category;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public void setCategory(Category category) {

@@ -8,6 +8,26 @@ public class CategoryBanner2{
     private String price;
     private Category category;
 
+    private String publisher;
+
+    private Author author;
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
     public int getId() {
         return id;
     }

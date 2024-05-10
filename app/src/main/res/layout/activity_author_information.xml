@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".author_screen.AuthorInformationActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:id="@+id/authorImageView"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:src="@drawable/elibra"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="@dimen/_30dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_top_author">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/idAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/showMoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show more"
+            android:textSize="20sp"
+            android:textColor="#2561ba"/>
+
+    </LinearLayout>
+
+</LinearLayout>
