@@ -2,6 +2,7 @@ package edu.rupp.firstite.Home_screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
@@ -10,21 +11,55 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.modals.AddCartBook;
+import edu.rupp.firstite.modals.Banner;
+import edu.rupp.firstite.service.ApiServiceBanner;
+import edu.rupp.firstite.service.ApiServiceCartBook;
+import edu.rupp.firstite.signIn_Screen.MainActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class BookDetailActivity extends AppCompatActivity {
     private static final int MAX_LINES_COLLAPED = 5;
     private boolean isExpanded = false;
 
+    String accessToken;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
+
+        // Fetch access token from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String retrievedAccessToken = sharedPreferences.getString("access_token", null);
+
+        if (retrievedAccessToken != null && !retrievedAccessToken.isEmpty()) {
+            // Log the retrieved access token
+            Log.d("AccessToken", "Retrieved Access Token: " + retrievedAccessToken);
+            // Store the retrieved access token for later use
+            accessToken = retrievedAccessToken;
+        } else {
+            // Handle scenario where access token is not available or empty
+            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+        }
+
+
+        // Store the retrieved access token for later use
+        accessToken = retrievedAccessToken;
 
         String bookImageUrl = getIntent().getStringExtra("book_image_url");
         String bookTitle = getIntent().getStringExtra("book_title");
@@ -46,6 +81,18 @@ public class BookDetailActivity extends AppCompatActivity {
             // Show "Add to Cart" button
             findViewById(R.id.btnAddToCart).setVisibility(View.VISIBLE);
         }
+
+
+        // Find the Add to Button id
+        Button addToCartButton = findViewById(R.id.btnAddToCart);
+
+        //set onClickListener for the button addToCart
+        addToCartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddCartBook();
+            }
+        });
 
         ImageView imageView = findViewById(R.id.BookImageView);
         TextView textView = findViewById(R.id.txtTitleDetail);
@@ -103,6 +150,46 @@ public class BookDetailActivity extends AppCompatActivity {
                 isExpanded = !isExpanded;
             }
         });
+    }
 
+    private void AddCartBook() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:5000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Fetch book details from intent
+        int bookId = getIntent().getIntExtra("book_id", 0);
+        int userId = getIntent().getIntExtra("user_id",0); // Implement this method to get the user ID
+        int quantity = 1; // You can set the quantity as per your requirements
+
+        // Create an instance of AddCartBook and set user_id, book_id, and quantity
+        AddCartBook addCartBook = new AddCartBook();
+        addCartBook.setUser_id(userId);
+        addCartBook.setBook_id(bookId);
+        addCartBook.setQuantity(quantity);
+
+        // Create ApiServiceCartBook instance
+        ApiServiceCartBook apiServiceCartBook = retrofit.create(ApiServiceCartBook.class);
+
+        // Make the POST request with the access token in the header and AddCartBook instance in the request body
+        apiServiceCartBook.AddCartBook("Bearer " + accessToken, addCartBook).enqueue(new Callback<List<AddCartBook>>() {
+            @Override
+            public void onResponse(Call<List<AddCartBook>> call, Response<List<AddCartBook>> response) {
+                if (response.isSuccessful()) {
+                    // Handle successful response
+                    Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Handle unsuccessful response
+                    Log.e("AddToCart", "Failed to add book to cart: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<AddCartBook>> call, Throwable t) {
+                // Handle failure
+                Log.e("AddToCart", "Failed to add book to cart", t);
+            }
+        });
     }
 }
