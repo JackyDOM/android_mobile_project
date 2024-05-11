@@ -10,5 +10,5 @@ import retrofit2.http.POST;
 
 public interface ApiServiceCartBook {
     @POST("/events/cart")
-    Call<List<AddCartBook>> AddCartBook(@Header("Authorization") String authorizationHeader, @Body AddCartBook addCartBook);
+    Call<AddCartBook> AddCartBook(@Header("Authorization") String authorizationHeader, @Body AddCartBook addCartBook);
 }

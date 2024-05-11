@@ -173,9 +173,9 @@ public class BookDetailActivity extends AppCompatActivity {
         ApiServiceCartBook apiServiceCartBook = retrofit.create(ApiServiceCartBook.class);
 
         // Make the POST request with the access token in the header and AddCartBook instance in the request body
-        apiServiceCartBook.AddCartBook("Bearer " + accessToken, addCartBook).enqueue(new Callback<List<AddCartBook>>() {
+        apiServiceCartBook.AddCartBook("Bearer " + accessToken, addCartBook).enqueue(new Callback<AddCartBook>() {
             @Override
-            public void onResponse(Call<List<AddCartBook>> call, Response<List<AddCartBook>> response) {
+            public void onResponse(Call<AddCartBook> call, Response<AddCartBook> response) {
                 if (response.isSuccessful()) {
                     // Handle successful response
                     Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
@@ -186,7 +186,7 @@ public class BookDetailActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<AddCartBook>> call, Throwable t) {
+            public void onFailure(Call<AddCartBook> call, Throwable t) {
                 // Handle failure
                 Log.e("AddToCart", "Failed to add book to cart", t);
             }

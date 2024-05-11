@@ -80,18 +80,21 @@ public class CartFragment extends Fragment {
         task.enqueue(new Callback<List<Book>>() {
             @Override
             public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
-                if(response.isSuccessful()){
-                    // Update adapter data with response body
-                    cartAdapter.submitList(response.body());
+                if (response.isSuccessful()) {
+                    List<Book> books = response.body();
+                    if (books != null) {
+                        cartAdapter.submitList(books);
+                    }
                 } else {
-                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+                    Log.e("CartFragment", "Failed to load cart items: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-            }
+                Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+                Log.e("CartFragment", "Failed to load cart items", t);            }
         });
     }
 

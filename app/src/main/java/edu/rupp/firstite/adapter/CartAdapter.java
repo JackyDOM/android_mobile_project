@@ -57,7 +57,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
         }
 
         public void bingCart(Book book){
-            Picasso.get().load(book.getBook_image()).into(binding.CartBookImage);
+            Picasso.get().load(book.getBook_Image()).into(binding.CartBookImage);
         }
     }
 }
