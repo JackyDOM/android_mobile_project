@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -53,6 +54,29 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View dotIndicator = binding.dotLayout;
+
+        ImageView generalBookIcon = binding.getRoot().findViewById(R.id.GeneralBookIcon);
+        ImageView comicBookIcon = binding.getRoot().findViewById(R.id.ComicBookIcon);
+
+        generalBookIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start BookGrid activity and pass accessToken as extra data
+                Intent intent = new Intent(getContext(), BookGridActivity.class);
+                intent.putExtra("accessToken", accessToken);
+                startActivity(intent);
+            }
+        });
+
+        comicBookIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start BookGrid activity and pass accessToken as extra data
+                Intent intent1 = new Intent(getContext(), BookGridActivity.class);
+                intent1.putExtra("accessToken", accessToken);
+                startActivity(intent1);
+            }
+        });
 
         binding.recycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
