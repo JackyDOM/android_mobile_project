@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.HashSet;
 import java.util.List;
 
 import edu.rupp.firstite.R;
@@ -35,6 +36,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BookDetailActivity extends AppCompatActivity {
     private static final int MAX_LINES_COLLAPED = 5;
     private boolean isExpanded = false;
+    // Add a HashSet to keep track of added bookIds
+    private HashSet<Integer> addedBookIds = new HashSet<>();
+    private boolean isItemAddedToCart = false; // Initialize flag
 
     String accessToken;
 
@@ -153,13 +157,20 @@ public class BookDetailActivity extends AppCompatActivity {
     }
 
     private void AddCartBook() {
+        // Check if the item is already added to the cart using bookId
+        int bookId = getIntent().getIntExtra("book_id", 0);
+        if (addedBookIds.contains(bookId)) {
+            Toast.makeText(this, "Item is already in the cart", Toast.LENGTH_SHORT).show();
+            return; // Exit the method to avoid adding the item again
+        }
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         // Fetch book details from intent
-        int bookId = getIntent().getIntExtra("book_id", 0);
+        //int bookId = getIntent().getIntExtra("book_id", 0);
         int userId = getIntent().getIntExtra("user_id",0); // Implement this method to get the user ID
         int quantity = 1; // You can set the quantity as per your requirements
 
@@ -179,6 +190,10 @@ public class BookDetailActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     // Handle successful response
                     Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    isItemAddedToCart = true;
+
+                    // Add the bookId to the HashSet
+                    addedBookIds.add(bookId);
                 } else {
                     // Handle unsuccessful response
                     Log.e("AddToCart", "Failed to add book to cart: " + response.message());

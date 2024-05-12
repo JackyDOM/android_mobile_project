@@ -1,32 +1,61 @@
 package edu.rupp.firstite.modals;
 
-import com.google.gson.annotations.SerializedName;
-
 public class Book {
     private int id;
-//    private String title;
-//    private String description;
-//    private String price;
-//    private String publisher;
-//    private Category category;
-//    private Author author;
+    private int quantity;
+    private BookData book;
 
-    //@SerializedName("book_image")
-    private String book_Image;
+    public static class BookData {
+        private String book_image;
+        private String title;
+        private String price;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public void setBook_Image(String book_Image) {
-        this.book_Image = book_Image;
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getPrice() {
+            return price;
+        }
+
+        public void setPrice(String price) {
+            this.price = price;
+        }
+
+        public String getBook_image() {
+            return book_image;
+        }
+
+        public void setBook_image(String book_image) {
+            this.book_image = book_image;
+        }
     }
 
     public int getId() {
         return id;
     }
 
-    public String getBook_Image() {
-        return book_Image;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public BookData getBook() {
+        return book;
+    }
+
+    public void setBook(BookData book) {
+        this.book = book;
     }
 }
