@@ -42,7 +42,16 @@
                 android:queryHint="Search..."
                 android:iconifiedByDefault="false"
                 android:background="@drawable/rounded_searchview_bg"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycleViewSearch"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </LinearLayout>
+
+
 
     </FrameLayout>
 

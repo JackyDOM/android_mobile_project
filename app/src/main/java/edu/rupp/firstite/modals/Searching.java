@@ -2,6 +2,16 @@ package edu.rupp.firstite.modals;
 
 public class Searching {
     private String title;
+    private String book_image;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
@@ -19,5 +29,5 @@ public class Searching {
         this.book_image = book_image;
     }
 
-    private String book_image;
+
 }

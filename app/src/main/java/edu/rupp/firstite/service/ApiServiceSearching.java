@@ -8,6 +8,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 
 public interface ApiServiceSearching {
-    @GET("/books/book/{id}")
+    @GET("/books/book/{title}")
     Call<List<Author>> loadSearchingImage(@Header("Authorization") String authorizationHeader);
 }

@@ -2,11 +2,14 @@ package edu.rupp.firstite.adapter;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import edu.rupp.firstite.R;
 import edu.rupp.firstite.databinding.ViewHolderCartBinding;
 import edu.rupp.firstite.modals.Book;
 import edu.rupp.firstite.service.ApiServiceDeleteCart;
@@ -74,6 +78,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         Book book = getItem(position);
         holder.bingCart(book);
+        updateTotalPrice(); // Update total price on each bind
     }
 
     public class CartViewHolder extends RecyclerView.ViewHolder {
@@ -96,6 +101,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
             binding.txtTitleCart.setText(book.getBook().getTitle());
             String priceLabelText = "Price: " + book.getBook().getPrice() + " $";
             binding.txtPriceCart.setText(priceLabelText);
+            updateTotalPrice();
         }
 
         private void increaseQuantity() {
@@ -104,6 +110,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
                 Book book = getItem(position);
                 book.setQuantity(book.getQuantity() + 1);
                 notifyItemChanged(position);
+                updateTotalPrice();
             }
         }
 
@@ -114,6 +121,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
                 if (book.getQuantity() > 1) {
                     book.setQuantity(book.getQuantity() - 1);
                     notifyItemChanged(position);
+                    updateTotalPrice();
                 }
             }
         }
@@ -130,6 +138,34 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
 
             // Delete the item after a delay of 2 seconds
             deleteItemWithDelay(bookId);
+        }
+    }
+
+    private double calculateTotalPrice() {
+        double totalPrice = 0.0;
+        List<Book> cartItems = getCurrentList();
+        for (Book book : cartItems) {
+            totalPrice += (book.getQuantity() * Double.parseDouble(book.getBook().getPrice()));
+        }
+        return totalPrice;
+    }
+
+
+    private void updateTotalPrice() {
+        // Access the TextView for total price from the activity or fragment
+        // Assuming you have a reference to the total TextView
+        TextView totalTextView = ((Activity) context).findViewById(R.id.txtTotal);
+        if (totalTextView != null) {
+            RecyclerView recyclerView = (RecyclerView) ((Activity) context).findViewById(R.id.recycleViewCart);
+            CartAdapter cartAdapter = (CartAdapter) recyclerView.getAdapter(); // Assuming recyclerView is accessible
+            if (cartAdapter != null) {
+                double totalPrice = cartAdapter.calculateTotalPrice();
+                String totalPriceText = String.format("Total: $%.2f", totalPrice);
+                totalTextView.setText(totalPriceText);
+
+                // Set visibility of txtTotal based on the total price
+                totalTextView.setVisibility(totalPrice > 0 ? View.VISIBLE : View.GONE);
+            }
         }
     }
 
@@ -181,7 +217,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
                         Toast.makeText(context, "Item deleted successfully", Toast.LENGTH_SHORT).show();
 
                         // Remove the item from the RecyclerView
-                        removeItem(itemId);
+                        removeItemAndUpdateTotal(itemId);
                     } else {
                         // Error handling for unsuccessful response
                         Toast.makeText(context, "Failed to delete item from server", Toast.LENGTH_SHORT).show();
@@ -211,19 +247,32 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
         }
     }
 
-    // Method to remove item from the RecyclerView dataset
-    // Method to remove item from the RecyclerView dataset
-    private void removeItem(int itemId) {
+    private void removeItemAndUpdateTotal(int itemId) {
         List<Book> currentList = new ArrayList<>(getCurrentList());
+        double totalPrice = 0.0;
+        int positionToRemove = -1;
+
+        // Find the position of the item to remove
         for (int i = 0; i < currentList.size(); i++) {
             if (currentList.get(i).getId() == itemId) {
-                currentList.remove(i);
-                notifyItemRemoved(i);
+                positionToRemove = i;
                 break;
             }
         }
+
+        // Remove the item if found
+        if (positionToRemove != -1) {
+            currentList.remove(positionToRemove);
+            notifyItemRemoved(positionToRemove);
+        }
+
+        // Recalculate total price
+        for (Book book : currentList) {
+            totalPrice += (book.getQuantity() * Double.parseDouble(book.getBook().getPrice()));
+        }
         submitList(currentList);
     }
+
 
     // Method to dismiss loading indicator
     private void dismissProgressDialog() {
