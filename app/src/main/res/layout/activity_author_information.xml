@@ -1,62 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:gravity="center_horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".author_screen.AuthorInformationActivity"
-    android:orientation="vertical">
-
-    <ImageView
-        android:layout_marginTop="30dp"
-        android:id="@+id/authorImageView"
-        android:layout_width="360dp"
-        android:layout_height="200dp"
-        android:src="@drawable/elibra"
-        android:scaleType="centerCrop" />
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:orientation="vertical"
-        android:padding="@dimen/_30dp"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/rounded_top_author">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="name"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+        <ImageView
+            android:id="@+id/BackToAuthorScreen"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:src="@drawable/baseline_keyboard_arrow_down_24"/>
 
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="name"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="799dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context=".author_screen.AuthorInformationActivity">
 
-        <TextView
-            android:id="@+id/idAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="name"
-            android:textSize="20sp"
-            android:textColor="@color/black"/>
+            <ImageView
+                android:id="@+id/authorImageView"
+                android:layout_width="360dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/elibra" />
 
-        <TextView
-            android:id="@+id/showMoreTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show more"
-            android:textSize="20sp"
-            android:textColor="#2561ba"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_top_author"
+                android:orientation="vertical"
+                android:padding="@dimen/_30dp">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="name"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="name"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/idAuthor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="name"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/showMoreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show more"
+                    android:textColor="#2561ba"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
 
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

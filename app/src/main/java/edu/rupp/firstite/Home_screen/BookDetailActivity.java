@@ -47,6 +47,18 @@ public class BookDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
+        // Find the ImageView by id
+        ImageView backHomeImageView = findViewById(R.id.backHomefragment);
+
+        // Set an OnClickListener to the ImageView
+        backHomeImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the HomeFragment
+                navigateToHomeFragment();
+            }
+        });
+
         // Fetch access token from SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String retrievedAccessToken = sharedPreferences.getString("access_token", null);
@@ -207,4 +219,20 @@ public class BookDetailActivity extends AppCompatActivity {
             }
         });
     }
+
+    // Method to navigate to the HomeFragment
+    private void navigateToHomeFragment() {
+        // Create a new instance of the HomeFragment
+        HomeFragment homeFragment = new HomeFragment();
+
+        // Replace the current fragment with the HomeFragment
+        getSupportFragmentManager().beginTransaction()
+                .replace(android.R.id.content, homeFragment)
+                .addToBackStack(null)
+                .commit();
+
+        // Finish the BookDetailActivity
+        finish();
+    }
+
 }

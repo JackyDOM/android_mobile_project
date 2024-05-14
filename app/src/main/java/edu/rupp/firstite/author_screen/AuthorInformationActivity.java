@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.rupp.firstite.Home_screen.HomeFragment;
 import edu.rupp.firstite.R;
 
 public class AuthorInformationActivity extends AppCompatActivity {
@@ -23,6 +24,17 @@ public class AuthorInformationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_author_information);
+
+        // Find the ImageView by id
+        ImageView BackToAuthorScreen = findViewById(R.id.BackToAuthorScreen);
+
+        BackToAuthorScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the HomeFragment
+                navigateToAuthorFragment();
+            }
+        });
 
         String authorImageUrl = getIntent().getStringExtra("author_image_url");
         String authorgender = getIntent().getStringExtra("author_gender");
@@ -77,5 +89,19 @@ public class AuthorInformationActivity extends AppCompatActivity {
                 isExpanded = !isExpanded;
             }
         });
+    }
+
+    // Method to navigate to the HomeFragment
+    private void navigateToAuthorFragment() {
+        // Create a new instance of the AuthorFragment
+        AuthorFragment authorFragment = new AuthorFragment();
+
+        // Replace the current fragment with the AuthorFragment
+        getSupportFragmentManager().beginTransaction()
+                .replace(android.R.id.content, authorFragment)
+                .addToBackStack(null)
+                .commit();
+
+        finish();
     }
 }
