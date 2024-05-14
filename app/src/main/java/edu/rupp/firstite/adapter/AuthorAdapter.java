@@ -71,6 +71,7 @@ public class AuthorAdapter extends ListAdapter<Author, AuthorAdapter.AuthorViewH
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), AuthorInformationActivity.class);
+                    intent.putExtra("author_id", author.getId());
                     intent.putExtra("author_image_url",author.getAuthor_image());
                     intent.putExtra("author_gender",author.getGender());
                     intent.putExtra("author_name",author.getAuthor_name());
