@@ -23,7 +23,7 @@
 
         <!-- TextView to display "Cart is Empty" message -->
         <TextView
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="150dp"
             android:textSize="50dp"
             android:id="@+id/txtTotal"
             android:layout_width="match_parent"
@@ -31,5 +31,14 @@
             android:text="Total = 0"
             android:gravity="center_horizontal"
             android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnPaynow"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="370dp"
+            android:layout_height="60dp"
+            android:text="Pay Now"
+            android:textSize="20sp"/>
     </LinearLayout>
 </ScrollView>

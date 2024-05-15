@@ -1,6 +1,7 @@
 package edu.rupp.firstite.cart_screen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import edu.rupp.firstite.adapter.CartAdapter;
 import edu.rupp.firstite.databinding.FragmentCartsBinding;
 import edu.rupp.firstite.modals.Banner;
 import edu.rupp.firstite.modals.Book;
+import edu.rupp.firstite.payment_screen.PaymentActivity;
 import edu.rupp.firstite.service.ApiServiceGetCart;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -65,6 +67,15 @@ public class CartFragment extends Fragment {
         cartAdapter = new CartAdapter(getContext());
         binding.recycleViewCart.setAdapter(cartAdapter);
 
+        // Add click listener for Pay Now button
+        binding.btnPaynow.setOnClickListener(v -> {
+            if (cartAdapter.getCurrentList().isEmpty()) {
+                Toast.makeText(getContext(), "You need to buy first", Toast.LENGTH_SHORT).show();
+            } else {
+                navigateToPaymentScreen();
+            }
+        });
+
 
         return binding.getRoot();
     }
@@ -97,5 +108,11 @@ public class CartFragment extends Fragment {
                 Log.e("CartFragment", "Failed to load cart items", t);            }
         });
     }
+
+    private void navigateToPaymentScreen() {
+        Intent intent = new Intent(getContext(), PaymentActivity.class);
+        startActivity(intent);
+    }
+
 
 }
