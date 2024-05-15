@@ -83,7 +83,7 @@ public class BookDetailActivity extends AppCompatActivity {
         String bookPublisher = getIntent().getStringExtra("book_publisher");
         String bookCategoryName = getIntent().getStringExtra("book_Category_Name");
         String authorName = getIntent().getStringExtra("author_name");
-        String authorDecs = getIntent().getStringExtra("author_Decs");
+        String authorDecs = getIntent().getStringExtra("description");
         int bookId = getIntent().getIntExtra("book_id",0); // Retrieve book_id
 
         // Log the book_id

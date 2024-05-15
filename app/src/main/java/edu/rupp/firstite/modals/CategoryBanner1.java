@@ -8,6 +8,17 @@ public class CategoryBanner1 {
     private String book_image;
     private String title;
     private String price;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    private String description;
+
     private String publisher;
     private Category category;
     private Author author;

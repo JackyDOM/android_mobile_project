@@ -77,7 +77,7 @@ public class CategoryAdapter extends ListAdapter<CategoryBanner1, CategoryAdapte
                     intent.putExtra("book_publisher", categoryBanner1.getPublisher());
                     intent.putExtra("book_Category_Name", categoryBanner1.getCategory().getName());
                     intent.putExtra("author_name", categoryBanner1.getAuthor().getAuthor_name());
-                    intent.putExtra("author_Decs", categoryBanner1.getAuthor().getAuthor_decs());
+                    intent.putExtra("description", categoryBanner1.getDescription());
                     intent.putExtra("book_id", categoryBanner1.getId());
                     v.getContext().startActivity(intent);
                 }
