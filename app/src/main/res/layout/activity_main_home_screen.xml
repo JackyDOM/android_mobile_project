@@ -17,8 +17,10 @@
         android:id="@+id/bottomNaviView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#3b3d3b"
+        android:background="#dee0de"
         app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="selected"
+        app:itemIconTint="@color/bottom_nav_icon_colors"
+        app:itemTextColor="@color/bottom_nav_icon_colors"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>

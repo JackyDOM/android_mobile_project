@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:id="@+id/parentAppBar"
         android:layout_width="match_parent"
         android:background="@color/e1e3e1"
@@ -20,7 +22,6 @@
             android:id="@+id/txtlogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_15dp"
             android:layout_marginLeft="@dimen/_5dp"
             android:layout_toRightOf="@+id/imgLogoELibrary"
             android:textSize="@dimen/_25sp"
@@ -28,6 +29,6 @@
             android:fontFamily="@font/robotbold"
             android:text="@string/e_library"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
