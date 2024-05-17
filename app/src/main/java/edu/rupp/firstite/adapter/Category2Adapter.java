@@ -81,6 +81,7 @@ public class Category2Adapter extends ListAdapter<CategoryBanner2, Category2Adap
                     intent.putExtra("author_name", categoryBanner2.getAuthor().getAuthor_name());
                     intent.putExtra("description", categoryBanner2.getDescription());
                     intent.putExtra("book_id", categoryBanner2.getId());
+                    intent.putExtra("book_pdf", categoryBanner2.getBook_pdf());
                     v.getContext().startActivity(intent);
                 }
             });

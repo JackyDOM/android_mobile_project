@@ -2,6 +2,7 @@ package edu.rupp.firstite.Home_screen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.Image;
@@ -46,9 +47,29 @@ public class BookDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
+        String bookPdf = getIntent().getStringExtra("book_pdf");
+
 
         // Find the ImageView by id
         ImageView backHomeImageView = findViewById(R.id.backHomefragment);
+        // Inside your onCreate method after setting up the button visibility conditions
+        Button addToFavoritesButton = findViewById(R.id.btnAddToFavorites);
+
+        addToFavoritesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Log the value of bookPdf just before starting BookPdfActivity
+                Log.d("BookDetailActivity", "PDF URL: " + bookPdf);
+                // Create an Intent to navigate to FavoritesActivity
+                Intent intentPdf = new Intent(BookDetailActivity.this, BookPdfActivity.class);
+
+                // Pass the book PDF URL to the BookPdfActivity
+                intentPdf.putExtra("book_pdf_url", bookPdf);
+
+                // Start the FavoritesActivity
+                startActivity(intentPdf);
+            }
+        });
 
         // Set an OnClickListener to the ImageView
         backHomeImageView.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +109,8 @@ public class BookDetailActivity extends AppCompatActivity {
 
         // Log the book_id
         Log.d("SignIn", "Book ID: " + bookId);
+        // Log the book_id
+        Log.d("SignIn", "Book Pdf: " + bookPdf);
 
         // Check if the price equals "free"
         if ("free".equalsIgnoreCase(bookPrice)) {

@@ -79,6 +79,7 @@ public class CategoryAdapter extends ListAdapter<CategoryBanner1, CategoryAdapte
                     intent.putExtra("author_name", categoryBanner1.getAuthor().getAuthor_name());
                     intent.putExtra("description", categoryBanner1.getDescription());
                     intent.putExtra("book_id", categoryBanner1.getId());
+                    intent.putExtra("book_pdf", categoryBanner1.getBook_pdf());
                     v.getContext().startActivity(intent);
                 }
             });

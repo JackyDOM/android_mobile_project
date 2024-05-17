@@ -56,7 +56,8 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.View
             intent.putExtra("book_Category_Name", searching.getCategory().getName());
             intent.putExtra("author_name", searching.getAuthor().getAuthor_name());
             intent.putExtra("author_Decs", searching.getAuthor().getAuthor_decs());
-            intent.putExtra("book_id", searching.getId()); // Assuming you have a getBookId method
+            intent.putExtra("book_id", searching.getId());
+            intent.putExtra("book_pdf", searching.getBook_pdf());// Assuming you have a getBookId method
             context.startActivity(intent);
         });
     }

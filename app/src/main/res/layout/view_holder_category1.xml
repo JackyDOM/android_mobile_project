@@ -5,6 +5,8 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:layout_marginRight="@dimen/_15dp"
+        android:layout_marginLeft="@dimen/_15dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -27,8 +29,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textAppearance="?android:textAppearanceMedium"
             android:text="Hello"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textStyle="bold"/>
 
         <TextView

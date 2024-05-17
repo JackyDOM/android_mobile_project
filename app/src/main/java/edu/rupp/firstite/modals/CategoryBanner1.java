@@ -6,7 +6,18 @@ public class CategoryBanner1 {
     // create a variable
     private int id;
     private String book_image;
+
+    private String book_pdf;
     private String title;
+
+    public String getBook_pdf() {
+        return book_pdf;
+    }
+
+    public void setBook_pdf(String book_pdf) {
+        this.book_pdf = book_pdf;
+    }
+
     private String price;
 
     public String getDescription() {

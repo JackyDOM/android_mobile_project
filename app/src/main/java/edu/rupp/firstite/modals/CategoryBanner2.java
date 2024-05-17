@@ -3,25 +3,35 @@ package edu.rupp.firstite.modals;
 public class CategoryBanner2{
     private int id;
     private String book_image;
+    private String book_pdf;
     private String title;
 
     private String price;
 
     private String description;
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     private Category category;
 
     private String publisher;
 
     private Author author;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getBook_pdf() {
+        return book_pdf;
+    }
+
+    public void setBook_pdf(String book_pdf) {
+        this.book_pdf = book_pdf;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getPublisher() {
         return publisher;
