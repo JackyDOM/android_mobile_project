@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +9,7 @@
         android:background="#dedede"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/BackToAuthorScreen"
@@ -19,22 +19,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="799dp"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             tools:context=".author_screen.AuthorInformationActivity">
 
             <ImageView
                 android:id="@+id/authorImageView"
-                android:layout_width="360dp"
-                android:layout_height="300dp"
+                android:layout_width="260dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/elibra" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/rounded_top_author"
                 android:orientation="vertical"
@@ -64,30 +64,45 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
+                <ScrollView
+                    android:id="@+id/descriptionScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Short description"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </ScrollView>
+
                 <TextView
                     android:id="@+id/showMoreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Show more"
                     android:textColor="#2561ba"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Author Book"
-                    android:textSize="30dp"
-                    android:textColor="@color/black"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/AuthorBookDisplay"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:textSize="20sp"/>
 
             </LinearLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recommend Book"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/AuthorBookDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
