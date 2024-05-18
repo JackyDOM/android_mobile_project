@@ -40,6 +40,7 @@ public class AuthorInformationActivity extends AppCompatActivity {
     private BookAuthorAdapter bookAuthorAdapter;
     private RecyclerView recyclerView;
     private String accessToken;
+    private String authorName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +86,7 @@ public class AuthorInformationActivity extends AppCompatActivity {
         // Get intent extras
         String authorImageUrl = getIntent().getStringExtra("author_image_url");
         String authorgender = getIntent().getStringExtra("author_gender");
-        String authorName = getIntent().getStringExtra("author_name");
+        authorName = getIntent().getStringExtra("author_name");
         String authorDecs = getIntent().getStringExtra("author_decs");
 
         // Set author image and details
@@ -154,8 +155,10 @@ public class AuthorInformationActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<AuthorBookDisplay>> call, Response<List<AuthorBookDisplay>> response) {
                 if (response.isSuccessful()) {
-                    // Get the list of books from the response body
                     List<AuthorBookDisplay> authorBookDisplayList = response.body();
+
+                    // Log the response for debugging
+                    Log.d("AuthorBooksResponse", "Books: " + authorBookDisplayList);
 
                     // Initialize the adapter if it's null
                     if (bookAuthorAdapter == null) {
@@ -163,15 +166,16 @@ public class AuthorInformationActivity extends AppCompatActivity {
                         recyclerView.setAdapter(bookAuthorAdapter);
                     }
 
-                    // Filter books based on author's name
+                    // Filter books based on the dynamic author's name
                     List<AuthorBookDisplay> filteredList = new ArrayList<>();
                     for (AuthorBookDisplay book : authorBookDisplayList) {
-                        String authorName = book.getAuthor().getAuthor_name().trim();
-                        if (authorName.equals("ញ៉ុក ថែម") || authorName.equals("នូ ហាច")) {
+                        if (book.getAuthor().getAuthor_name().trim().equalsIgnoreCase(authorName.trim())) {
                             filteredList.add(book);
                         }
                     }
 
+                    // Log the filtered list for debugging
+                    Log.d("FilteredBooks", "Filtered Books for " + authorName + ": " + filteredList);
 
                     // Update adapter data with the filtered list of books
                     bookAuthorAdapter.submitList(filteredList);
@@ -186,8 +190,5 @@ public class AuthorInformationActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 
 }

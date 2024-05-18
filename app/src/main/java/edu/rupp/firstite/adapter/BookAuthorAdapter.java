@@ -1,6 +1,8 @@
 package edu.rupp.firstite.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import edu.rupp.firstite.Home_screen.BookDetailActivity;
 import edu.rupp.firstite.databinding.ViewHolderAuthorBookBinding;
 import edu.rupp.firstite.modals.AuthorBookDisplay;
 
@@ -59,6 +62,22 @@ public class BookAuthorAdapter extends ListAdapter<AuthorBookDisplay, BookAuthor
             Picasso.get().load(authorBookDisplay.getBook_image()).into(binding.bookAuthorImage);
             this.binding.txtBookAuthorTitle.setText(authorBookDisplay.getTitle());
 
+            binding.bookAuthorImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intentAuthorBook = new Intent(v.getContext(), BookDetailActivity.class);
+                    intentAuthorBook.putExtra("book_image_url",authorBookDisplay.getBook_image());
+                    intentAuthorBook.putExtra("book_title",authorBookDisplay.getTitle());
+                    intentAuthorBook.putExtra("book_price", authorBookDisplay.getPrice());
+                    intentAuthorBook.putExtra("book_publisher", authorBookDisplay.getPublisher());
+                    intentAuthorBook.putExtra("book_Category_Name", authorBookDisplay.getCategory().getName());
+                    intentAuthorBook.putExtra("author_name", authorBookDisplay.getAuthor().getAuthor_name());
+                    intentAuthorBook.putExtra("description", authorBookDisplay.getDescription());
+                    intentAuthorBook.putExtra("book_id", authorBookDisplay.getId());
+                    intentAuthorBook.putExtra("book_pdf", authorBookDisplay.getBook_pdf());
+                    v.getContext().startActivity(intentAuthorBook);
+                }
+            });
         }
 
     }
