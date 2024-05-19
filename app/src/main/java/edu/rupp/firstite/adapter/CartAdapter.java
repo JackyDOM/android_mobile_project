@@ -145,29 +145,25 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
         double totalPrice = 0.0;
         List<Book> cartItems = getCurrentList();
         for (Book book : cartItems) {
-            totalPrice += (book.getQuantity() * Double.parseDouble(book.getBook().getPrice()));
+            double itemPrice = book.getQuantity() * Double.parseDouble(book.getBook().getPrice());
+            Log.d("CartAdapter", "Item price: " + itemPrice);
+            totalPrice += itemPrice;
         }
         return totalPrice;
     }
 
 
+
+
     private void updateTotalPrice() {
-        // Access the TextView for total price from the activity or fragment
-        // Assuming you have a reference to the total TextView
+        double totalPrice = calculateTotalPrice();
         TextView totalTextView = ((Activity) context).findViewById(R.id.txtTotal);
         if (totalTextView != null) {
-            RecyclerView recyclerView = (RecyclerView) ((Activity) context).findViewById(R.id.recycleViewCart);
-            CartAdapter cartAdapter = (CartAdapter) recyclerView.getAdapter(); // Assuming recyclerView is accessible
-            if (cartAdapter != null) {
-                double totalPrice = cartAdapter.calculateTotalPrice();
-                String totalPriceText = String.format("Total: $%.2f", totalPrice);
-                totalTextView.setText(totalPriceText);
-
-                // Set visibility of txtTotal based on the total price
-                totalTextView.setVisibility(totalPrice > 0 ? View.VISIBLE : View.GONE);
-            }
+            totalTextView.setText(String.format("Total = $%.2f", totalPrice));
         }
     }
+
+
 
     private void deleteItemWithDelay(int bookId) {
         // Simulate a delay of 2 seconds before making the deletion request
@@ -175,7 +171,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
                 () -> {
                     // Call the method to delete the item from the server
                     deleteCartItemFromServer(bookId);
-                }, 5000); // 2000 milliseconds (2 seconds) delay
+                }, 2000); // 2000 milliseconds (2 seconds) delay
     }
 
     // Method to show loading indicator
@@ -249,7 +245,6 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
 
     private void removeItemAndUpdateTotal(int itemId) {
         List<Book> currentList = new ArrayList<>(getCurrentList());
-        double totalPrice = 0.0;
         int positionToRemove = -1;
 
         // Find the position of the item to remove
@@ -263,15 +258,18 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
         // Remove the item if found
         if (positionToRemove != -1) {
             currentList.remove(positionToRemove);
-            notifyItemRemoved(positionToRemove);
-        }
+            Log.d("CartAdapter", "Item removed. New list size: " + currentList.size());
+            submitList(new ArrayList<>(currentList)); // Submit the updated list to the adapter
+            notifyItemRemoved(positionToRemove); // Notify the adapter about the removed item
 
-        // Recalculate total price
-        for (Book book : currentList) {
-            totalPrice += (book.getQuantity() * Double.parseDouble(book.getBook().getPrice()));
+            // Update the total price after modifying the list
+            updateTotalPrice(); // Update total price here
+        } else {
+            Log.e("CartAdapter", "Item not found for removal");
         }
-        submitList(currentList);
     }
+
+
 
 
     // Method to dismiss loading indicator
