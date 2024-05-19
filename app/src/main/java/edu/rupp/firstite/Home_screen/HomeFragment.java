@@ -63,6 +63,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // Start BookGrid activity and pass accessToken as extra data
                 Intent intent = new Intent(getContext(), BookGridActivity.class);
+                intent.putExtra("categoryName", "ប្រលោមលោក");
                 intent.putExtra("accessToken", accessToken);
                 startActivity(intent);
             }
@@ -73,6 +74,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 // Start BookGrid activity and pass accessToken as extra data
                 Intent intent1 = new Intent(getContext(), BookGridActivity.class);
+                intent1.putExtra("categoryName", "កម្លែង");
                 intent1.putExtra("accessToken", accessToken);
                 startActivity(intent1);
             }
