@@ -63,6 +63,10 @@ public class BookGridAdapter extends ListAdapter<BookGridDisplay, BookGridAdapte
             Picasso.get().load(bookGridDisplay.getBook_image()).into(binding.imageViwBookGrid);
             binding.txtBookGrid.setText(bookGridDisplay.getTitle());
 
+            // display the price
+            String priceWithPrefix = "Price: " + bookGridDisplay.getPrice() + " $";
+            this.binding.txtPriceBookGrid.setText(priceWithPrefix);
+
             binding.imageViwBookGrid.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

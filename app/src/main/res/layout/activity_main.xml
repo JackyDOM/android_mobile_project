@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_to_our_app"
                     android:textStyle="bold"
-                    android:textSize="16dp"
+                    android:textSize="@dimen/_16sp"
                     android:id="@+id/txtWelcome"
                     android:textColor="@color/green_dark"/>
 
@@ -147,12 +147,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtView"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/_50dp"
             android:layout_centerHorizontal="true">
 
             <Button
                 android:id="@+id/btnGoogleLogin"
-                android:layout_width="300dp"
+                android:layout_width="@dimen/_300dp"
                 android:layout_height="wrap_content"
                 android:text="@string/log_in_with_google"
                 android:textColor="@color/black"
@@ -164,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/GoogleRelativeLayout"
-            android:layout_marginTop="200dp">
+            android:layout_marginTop="@dimen/_200dp">
 
             <TextView
                 android:id="@+id/txtCambodia"
@@ -172,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_30dp"
                 android:text="@string/cambodia"
-                android:textColor="#0b870f"/>
+                android:textColor="@color/_0b870f_black_green"/>
 
             <TextView
                 android:id="@+id/txtE_library"
@@ -181,7 +181,7 @@
                 android:text="@string/e_library_ltd"
                 android:layout_toRightOf="@+id/txtCambodia"
                 android:layout_marginLeft="@dimen/_80dp"
-                android:textColor="#0b870f"/>
+                android:textColor="@color/_0b870f_black_green"/>
 
             <TextView
                 android:id="@+id/txtTosRan1"
@@ -190,7 +190,7 @@
                 android:layout_toRightOf="@+id/txtE_library"
                 android:text="@string/tos_ran"
                 android:layout_marginLeft="@dimen/_70dp"
-                android:textColor="#0b870f"/>
+                android:textColor="@color/_0b870f_black_green"/>
 
         </RelativeLayout>
     </RelativeLayout>

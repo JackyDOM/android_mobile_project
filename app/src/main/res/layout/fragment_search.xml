@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".author_screen.AuthorFragment"
-        android:padding="10dp">
+        android:padding="@dimen/_10dp">
 
         <!-- Include your toolbar layout -->
         <include
@@ -20,7 +20,7 @@
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="@dimen/_60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -29,22 +29,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Searching"
-                android:textSize="30sp"
+                android:text="@string/searching"
+                android:textSize="@dimen/_30sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="@dimen/_30dp"/>
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_view"
-                android:layout_width="380dp"
+                android:layout_width="@dimen/_380dp"
                 android:layout_height="wrap_content"
-                android:queryHint="Search..."
+                android:queryHint="@string/search"
                 android:iconifiedByDefault="false"
                 android:background="@drawable/rounded_searchview_bg"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleViewSearch"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </LinearLayout>

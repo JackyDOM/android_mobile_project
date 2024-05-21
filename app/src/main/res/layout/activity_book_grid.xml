@@ -6,13 +6,13 @@
 
     <ImageView
         android:id="@+id/iconBackHomePage"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_10dp"
         android:layout_width="@dimen/_40dp"
         android:layout_height="@dimen/_40dp"
         android:src="@drawable/baseline_keyboard_arrow_down_24"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_10dp"
         android:id="@+id/recycleViewBookGrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

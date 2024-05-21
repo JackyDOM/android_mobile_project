@@ -27,8 +27,8 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
+                android:layout_width="@dimen/_160dp"
+                android:layout_height="@dimen/_160dp"
                 android:src="@drawable/avarta1"/>
 
             <TextView
@@ -37,41 +37,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="18sp"
+                android:textSize="@dimen/_18sp"
                 android:textStyle="bold"
-                android:padding="16dp"
+                android:padding="@dimen/_16dp"
                 android:textColor="@android:color/black"
-                android:text="Welcome" />
+                android:text="@string/welcome" />
 
             <LinearLayout
-                android:layout_marginTop="50dp"
-                android:padding="10dp"
+                android:layout_marginTop="@dimen/_50dp"
+                android:padding="@dimen/_10dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal"
-                android:layout_width="400dp"
-                android:layout_height="80dp">
+                android:layout_width="@dimen/_400dp"
+                android:layout_height="@dimen/_80dp">
 
                 <Button
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="@dimen/_20dp"
+                    android:layout_marginRight="@dimen/_20dp"
+                    android:layout_marginTop="@dimen/_100dp"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/btnLogout"
-                    android:layout_width="160dp"
-                    android:layout_height="60dp"
-                    android:text="Logout"
-                    android:textSize="18sp"
+                    android:layout_width="@dimen/_160dp"
+                    android:layout_height="@dimen/_60dp"
+                    android:text="@string/logout_text"
+                    android:textSize="@dimen/_18sp"
                     android:backgroundTint="@color/red"
                     />
 
                 <Button
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="@dimen/_100dp"
                     android:layout_gravity="center_horizontal"
                     android:id="@+id/btnYourbook"
-                    android:layout_width="160dp"
-                    android:layout_height="60dp"
-                    android:text="Books"
-                    android:textSize="18sp"
+                    android:layout_width="@dimen/_160dp"
+                    android:layout_height="@dimen/_60dp"
+                    android:text="@string/books"
+                    android:textSize="@dimen/_18sp"
                     android:backgroundTint="@color/light_blue"/>
 
             </LinearLayout>

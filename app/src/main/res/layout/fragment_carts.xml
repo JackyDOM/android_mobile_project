@@ -17,28 +17,28 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycleViewCart"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
         <!-- TextView to display "Cart is Empty" message -->
         <TextView
-            android:layout_marginTop="150dp"
-            android:textSize="50dp"
+            android:layout_marginTop="@dimen/_150dp"
+            android:textSize="@dimen/_50dp"
             android:id="@+id/txtTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total = 0"
+            android:text="@string/total_0"
             android:gravity="center_horizontal"
             android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/btnPaynow"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20dp"
             android:layout_gravity="center_horizontal"
-            android:layout_width="370dp"
-            android:layout_height="60dp"
-            android:text="Pay Now"
-            android:textSize="20sp"/>
+            android:layout_width="@dimen/_370dp"
+            android:layout_height="@dimen/_60dp"
+            android:text="@string/pay_now"
+            android:textSize="@dimen/_20sp"/>
     </LinearLayout>
 </ScrollView>

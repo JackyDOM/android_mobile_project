@@ -7,19 +7,19 @@
     <LinearLayout
         android:layout_marginRight="@dimen/_15dp"
         android:layout_marginLeft="@dimen/_15dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/_8dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/bannerImageCategory"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/_150dp"
+            android:layout_height="@dimen/_200dp"
             android:layout_gravity="center_horizontal"
             android:scaleType="centerCrop"
             android:src="@drawable/elibra"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/_5dp"
             android:layout_marginRight="@dimen/_5dp"
             android:layout_marginTop="@dimen/_20dp"
             android:adjustViewBounds="true"/>
@@ -32,8 +32,8 @@
             android:maxLines="2"
             android:ellipsize="end"
             android:textAppearance="?android:textAppearanceMedium"
-            android:text="Hello"
-            android:textSize="17sp"
+            android:text="@string/hello"
+            android:textSize="@dimen/_17sp"
             android:textStyle="bold"/>
 
         <TextView
@@ -41,8 +41,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello"
-            android:textSize="15sp"
+            android:text="@string/hello"
+            android:textSize="@dimen/_15sp"
             android:textStyle="bold"/>
 
     </LinearLayout>

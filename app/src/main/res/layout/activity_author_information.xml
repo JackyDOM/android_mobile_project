@@ -6,7 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        android:background="#dedede"
+        android:background="@color/dedede"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -26,16 +26,16 @@
 
             <ImageView
                 android:id="@+id/authorImageView"
-                android:layout_width="260dp"
-                android:layout_height="200dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="@dimen/_260dp"
+                android:layout_height="@dimen/_200dp"
+                android:layout_marginTop="@dimen/_30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/elibra" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/_30dp"
                 android:background="@drawable/rounded_top_author"
                 android:orientation="vertical"
                 android:padding="@dimen/_30dp">
@@ -44,25 +44,25 @@
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="name"
+                    android:text="@string/name"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_20sp" />
 
                 <TextView
                     android:id="@+id/gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="name"
+                    android:text="@string/name"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_20sp" />
 
                 <TextView
                     android:id="@+id/idAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="name"
+                    android:text="@string/name"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/_20sp" />
 
                 <ScrollView
                     android:id="@+id/descriptionScrollView"
@@ -73,31 +73,31 @@
                         android:id="@+id/descriptionTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Short description"
+                        android:text="@string/short_description"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/_20sp" />
                 </ScrollView>
 
                 <TextView
                     android:id="@+id/showMoreTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Show more"
-                    android:textColor="#2561ba"
-                    android:textSize="20sp"/>
+                    android:text="@string/show_more"
+                    android:textColor="@color/_2561ba"
+                    android:textSize="@dimen/_20sp"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
         <TextView
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginBottom="@dimen/_10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Author's Book"
-            android:textSize="30dp"
+            android:text="@string/author_s_book"
+            android:textSize="@dimen/_30dp"
             android:textColor="@color/black"/>
 
         <androidx.recyclerview.widget.RecyclerView

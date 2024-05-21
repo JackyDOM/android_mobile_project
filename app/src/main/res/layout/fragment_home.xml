@@ -26,75 +26,75 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="@dimen/_8dp"/>
 
         <LinearLayout
             android:gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_width="388dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_30dp"
+            android:layout_width="@dimen/_388dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GeneralBook"
+                android:text="@string/generalbook"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/_20sp"/>
 
             <Space
-                android:layout_width="210dp"
+                android:layout_width="@dimen/_210dp"
                 android:layout_height="wrap_content"/>
 
             <ImageView
                 android:id="@+id/GeneralBookIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="@dimen/_50dp"
                 android:src="@drawable/baseline_arrow_right_alt_24"/>
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/_5dp"
             android:id="@+id/recycleViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <LinearLayout
             android:gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_width="388dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_30dp"
+            android:layout_width="@dimen/_388dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comic Book"
+                android:text="@string/comic_book"
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="@dimen/_20sp"/>
 
             <Space
-                android:layout_width="210dp"
+                android:layout_width="@dimen/_210dp"
                 android:layout_height="wrap_content"/>
 
             <ImageView
                 android:id="@+id/ComicBookIcon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="@dimen/_50dp"
                 android:src="@drawable/baseline_arrow_right_alt_24"/>
 
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="@dimen/_5dp"
             android:id="@+id/recycleViewCategory2"
             android:layout_width="match_parent"
-            android:layout_height="300dp" />
+            android:layout_height="@dimen/_300dp" />
 
     </LinearLayout>
 

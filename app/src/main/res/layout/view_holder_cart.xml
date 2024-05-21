@@ -11,18 +11,18 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_20dp"
             android:id="@+id/CartBookImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/_150dp"
+            android:layout_height="@dimen/_150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/elibra"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/_5dp"
             android:layout_marginRight="@dimen/_5dp"
             android:adjustViewBounds="true"/>
 
         <LinearLayout
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/_20dp"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -31,16 +31,16 @@
                 android:id="@+id/txtTitleCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title"
-                android:textSize="18sp"
+                android:text="@string/title_cart"
+                android:textSize="@dimen/_18sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/txtPriceCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price"
-                android:textSize="18sp"
+                android:text="@string/price_cart"
+                android:textSize="@dimen/_18sp"
                 android:textStyle="bold"/>
 
             <LinearLayout
@@ -50,34 +50,34 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:padding="5dp"
+                    android:padding="@dimen/_5dp"
                     android:backgroundTint="@color/white"
                     android:id="@+id/btnDecrease"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="-"
+                    android:layout_width="@dimen/_60dp"
+                    android:layout_height="@dimen/_60dp"
+                    android:text="@string/dash"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/_30sp"
                     android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/txtQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/_0"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/_30sp"
                     android:textColor="@color/black"/>
 
                 <Button
-                    android:padding="5dp"
+                    android:padding="@dimen/_5dp"
                     android:backgroundTint="@color/white"
                     android:id="@+id/btnIncrease"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:text="+"
+                    android:layout_width="@dimen/_60dp"
+                    android:layout_height="@dimen/_60dp"
+                    android:text="@string/Plus_cart"
                     android:textStyle="bold"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/_30sp"
                     android:textColor="@color/black"/>
 
             </LinearLayout>
@@ -86,10 +86,10 @@
 
         <ImageView
             android:id="@+id/delete"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/_20dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_width="@dimen/_30dp"
+            android:layout_height="@dimen/_30dp"
             android:src="@drawable/baseline_block_24"/>
 
     </LinearLayout>

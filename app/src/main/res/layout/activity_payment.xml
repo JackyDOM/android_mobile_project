@@ -29,8 +29,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel"
-                android:textSize="26sp"
+                android:text="@string/cancel"
+                android:textSize="@dimen/_26sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -43,47 +43,47 @@
         <EditText
             android:id="@+id/CardNumber"
             android:padding="@dimen/_15dp"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:hint="Card Number"
+            android:layout_width="@dimen/_350dp"
+            android:layout_height="@dimen/_50dp"
+            android:hint="@string/card_number"
             android:background="@drawable/border_edit_text"/>
 
         <EditText
             android:id="@+id/CardHolderNumber"
             android:layout_marginTop="@dimen/_20dp"
             android:padding="@dimen/_15dp"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:hint="Card_holder_number"
+            android:layout_width="@dimen/_350dp"
+            android:layout_height="@dimen/_50dp"
+            android:hint="@string/card_holder_number"
             android:background="@drawable/border_edit_text"/>
 
         <EditText
             android:id="@+id/ExpirationCard"
             android:layout_marginTop="@dimen/_20dp"
             android:padding="@dimen/_15dp"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:hint="Expiration Card"
+            android:layout_width="@dimen/_350dp"
+            android:layout_height="@dimen/_50dp"
+            android:hint="@string/expiration_card"
             android:background="@drawable/border_edit_text"/>
 
         <EditText
             android:id="@+id/Cvv"
             android:layout_marginTop="@dimen/_20dp"
             android:padding="@dimen/_15dp"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:hint="Cvv"
+            android:layout_width="@dimen/_350dp"
+            android:layout_height="@dimen/_50dp"
+            android:hint="@string/cvv"
             android:background="@drawable/border_edit_text"/>
 
         <Button
             android:id="@+id/btnDone"
-            android:layout_marginTop="30dp"
-            android:layout_width="370dp"
-            android:layout_height="60dp"
-            android:text="Done"
+            android:layout_marginTop="@dimen/_30dp"
+            android:layout_width="@dimen/_370dp"
+            android:layout_height="@dimen/_60dp"
+            android:text="@string/done"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginBottom="60dp"/>
+            android:textSize="@dimen/_20sp"
+            android:layout_marginBottom="@dimen/_60dp"/>
     </LinearLayout>
 
 </ScrollView>

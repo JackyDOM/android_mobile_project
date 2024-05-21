@@ -17,7 +17,7 @@
         android:id="@+id/bottomNaviView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#dee0de"
+        android:background="@color/dee0de_white_2"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="selected"
         app:itemIconTint="@color/bottom_nav_icon_colors"
