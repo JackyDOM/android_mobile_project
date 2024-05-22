@@ -52,6 +52,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/price"
                     android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/_18sp" />
 
                 <TextView
@@ -60,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/publisher"
                     android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/_18sp" />
 
                 <TextView
@@ -76,6 +78,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/author_name"
                     android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/_18sp" />
 
                 <TextView
@@ -84,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/decs"
                     android:textColor="@color/black"
+                    android:layout_marginBottom="5dp"
                     android:textSize="@dimen/_18sp" />
 
                 <TextView
@@ -92,6 +96,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/show_more1"
                     android:textColor="@color/_2561ba_blue"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
                     android:textSize="@dimen/_20sp" />
 
                 <LinearLayout

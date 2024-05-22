@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 import edu.rupp.firstite.Home_screen.BookDetailActivity;
 import edu.rupp.firstite.author_screen.AuthorInformationActivity;
 import edu.rupp.firstite.databinding.ViewHolderCategory1Binding;
@@ -51,7 +53,6 @@ public class CategoryAdapter extends ListAdapter<CategoryBanner1, CategoryAdapte
         CategoryBanner1 categoryBanner1 = getItem(position);
         holder.bingCategory(categoryBanner1);
     }
-
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
         private final ViewHolderCategory1Binding binding;
 

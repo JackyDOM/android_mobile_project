@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -47,10 +48,12 @@ public class AuthorFragment extends Fragment {
         if (retrievedAccessToken != null && !retrievedAccessToken.isEmpty()) {
             // Log the retrieved access token
             Log.d("AccessToken", "Retrieved Access Token in Author: " + retrievedAccessToken);
+//            showCustomToast("Retrieved Access Token in Author: " + retrievedAccessToken, true);
             // Store the retrieved access token for later use
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
+            showCustomToast("Access token not available or empty", false);
             Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
         }
 
@@ -87,6 +90,7 @@ public class AuthorFragment extends Fragment {
                     authorAdapter.submitList(response.body());
                 } else {
                     Toast.makeText(getContext(), "Failed reload Author", Toast.LENGTH_LONG).show();
+                    Log.d("Fail Author", "Failed to reload Author");
                 }
             }
 
@@ -94,8 +98,23 @@ public class AuthorFragment extends Fragment {
             public void onFailure(Call<List<Author>> call, Throwable t) {
                 // Log the error message
                 Log.e("AuthorFragment", "Failed to load authors: " + t.getMessage(), t);
+                showCustomToast("Failed to load authors", false);
                 Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
+    public void showCustomToast(String message, boolean isSuccess) {
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
+        View layout = inflater.inflate(isSuccess ? R.layout.toast_success : R.layout.toast_failure,
+                requireActivity().findViewById(isSuccess ? R.id.text : R.id.text));
+
+        TextView text = layout.findViewById(R.id.text);
+        text.setText(message);
+
+        Toast toast = new Toast(getContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+    }
+
 }

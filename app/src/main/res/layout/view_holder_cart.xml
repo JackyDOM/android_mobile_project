@@ -33,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/title_cart"
                 android:textSize="@dimen/_18sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"/>
 
             <TextView
@@ -41,10 +42,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/price_cart"
                 android:textSize="@dimen/_18sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"/>
 
             <LinearLayout
-                android:background="@color/light_blue"
+                android:background="@drawable/rounded_background"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -53,12 +55,13 @@
                     android:padding="@dimen/_5dp"
                     android:backgroundTint="@color/white"
                     android:id="@+id/btnDecrease"
-                    android:layout_width="@dimen/_60dp"
-                    android:layout_height="@dimen/_60dp"
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
                     android:text="@string/dash"
                     android:textStyle="bold"
-                    android:textSize="@dimen/_30sp"
-                    android:textColor="@color/black"/>
+                    android:textSize="@dimen/_20sp"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_4dp"/>
 
                 <TextView
                     android:id="@+id/txtQuantity"
@@ -67,18 +70,20 @@
                     android:text="@string/_0"
                     android:textStyle="bold"
                     android:textSize="@dimen/_30sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:layout_margin="6dp"/>
 
                 <Button
                     android:padding="@dimen/_5dp"
                     android:backgroundTint="@color/white"
                     android:id="@+id/btnIncrease"
-                    android:layout_width="@dimen/_60dp"
-                    android:layout_height="@dimen/_60dp"
+                    android:layout_width="@dimen/_50dp"
+                    android:layout_height="@dimen/_50dp"
                     android:text="@string/Plus_cart"
                     android:textStyle="bold"
-                    android:textSize="@dimen/_30sp"
-                    android:textColor="@color/black"/>
+                    android:textSize="@dimen/_20sp"
+                    android:textColor="@color/black"
+                    android:layout_margin="@dimen/_4dp"/>
 
             </LinearLayout>
 

@@ -65,6 +65,7 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getContext(), BookGridActivity.class);
                 intent.putExtra("categoryName", "ប្រលោមលោក");
                 intent.putExtra("accessToken", accessToken);
+                intent.putExtra("bookType", "General");
                 startActivity(intent);
             }
         });

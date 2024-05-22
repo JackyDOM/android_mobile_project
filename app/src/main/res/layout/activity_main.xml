@@ -67,7 +67,9 @@
                 android:hint="username"
                 android:paddingLeft="@dimen/_30dp"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="@dimen/_10dp" /> <!-- Adjust the margin as per your preference -->
+                android:layout_marginLeft="@dimen/_10dp"
+                android:textColor="@android:color/black"
+               android:backgroundTint="@color/edit_text_color_state_list" /> <!-- Adjust the margin as per your preference -->
 
             <ImageView
                 android:layout_width="@dimen/_20dp"
@@ -92,7 +94,9 @@
                 android:paddingLeft="@dimen/_30dp"
                 android:inputType="textPassword"
                 android:layout_marginLeft="@dimen/_10dp"
-                android:hint="@string/password"/>
+                android:hint="@string/password"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/edit_text_color_state_list"/>
 
             <ImageView
                 android:layout_width="@dimen/_20dp"
@@ -139,7 +143,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_40dp"
             android:text="@string/or_log_in_with"
-            android:textColor="@color/light_grey"
+            android:textColor="@color/black"
             android:textSize="@dimen/_15sp"/>
 
         <RelativeLayout

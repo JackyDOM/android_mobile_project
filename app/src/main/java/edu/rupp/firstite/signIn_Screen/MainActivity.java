@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +55,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void showCustomToast(String message, boolean isSuccess) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(isSuccess ? R.layout.toast_success : R.layout.toast_failure,
+                findViewById(isSuccess ? R.id.text : R.id.text));
+
+        TextView text = layout.findViewById(R.id.text);
+        text.setText(message);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+    }
 
     public void authenticateUser() {
         EditText edtUsername = findViewById(R.id.editTextEmail);
@@ -85,45 +100,36 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
-                    int userId = authResponse.getUserId(); // Get user_id here
-                    Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
+                    int userId = authResponse.getUserId();
                     Log.d("SignIn", "Access Token: " + accessToken);
-                    Log.d("SignIn", "User ID: " + userId); // Print user_id
+                    Log.d("SignIn", "User ID: " + userId);
 
-                    // Store the access token in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("access_token", accessToken);
                     editor.apply();
 
-                    // Retrieve the access token from SharedPreferences
                     String storedToken = sharedPreferences.getString("access_token", null);
                     Log.d("SignIn", "Stored Access Token: " + storedToken);
 
-                    // Example usage: If you want to navigate to HomeFragment after successful sign-in
-//                    getSupportFragmentManager().beginTransaction()
-//                            .replace(R.id.fragmentHome, new HomeFragment())
-//                            .commit();
+                    showCustomToast("Sign-in successful", true);
+
                     Intent intent_success = new Intent(MainActivity.this, MainActivityHomeScreen.class);
-                    intent_success.putExtra("username", username); // Pass the username to MainActivityHomeScreen
+                    intent_success.putExtra("username", username);
                     startActivity(intent_success);
 
-//                    HomeFragment homeFragment = new HomeFragment();
-//                    getSupportFragmentManager().beginTransaction()
-//                            .replace(R.id.fragment_container, homeFragment)
-//                            .commit();
-
                 } else {
-                    Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                    showCustomToast("Failed to sign in", false);
                     Log.e("SignIn", "Failed to sign in: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                showCustomToast("Failed to sign in", false);
                 Log.e("SignIn", "Failed to sign in", t);
             }
         });
+
     }
 
     public void openActivitySignUp() {

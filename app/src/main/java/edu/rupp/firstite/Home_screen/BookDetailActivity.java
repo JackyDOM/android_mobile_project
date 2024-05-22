@@ -11,6 +11,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,9 +39,8 @@ public class BookDetailActivity extends AppCompatActivity {
     private static final int MAX_LINES_COLLAPED = 5;
     private boolean isExpanded = false;
     // Add a HashSet to keep track of added bookIds
-    private HashSet<Integer> addedBookIds = new HashSet<>();
-    private boolean isItemAddedToCart = false; // Initialize flag
-
+    private final HashSet<Integer> addedBookIds = new HashSet<>();
+    // Initialize flag
     String accessToken;
 
     @Override
@@ -55,29 +55,23 @@ public class BookDetailActivity extends AppCompatActivity {
         // Inside your onCreate method after setting up the button visibility conditions
         Button addToFavoritesButton = findViewById(R.id.btnAddToFavorites);
 
-        addToFavoritesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Log the value of bookPdf just before starting BookPdfActivity
-                Log.d("BookDetailActivity", "PDF URL: " + bookPdf);
-                // Create an Intent to navigate to FavoritesActivity
-                Intent intentPdf = new Intent(BookDetailActivity.this, BookPdfActivity.class);
+        addToFavoritesButton.setOnClickListener(v -> {
+            // Log the value of bookPdf just before starting BookPdfActivity
+            Log.d("BookDetailActivity", "PDF URL: " + bookPdf);
+            // Create an Intent to navigate to FavoritesActivity
+            Intent intentPdf = new Intent(BookDetailActivity.this, BookPdfActivity.class);
 
-                // Pass the book PDF URL to the BookPdfActivity
-                intentPdf.putExtra("book_pdf_url", bookPdf);
+            // Pass the book PDF URL to the BookPdfActivity
+            intentPdf.putExtra("book_pdf_url", bookPdf);
 
-                // Start the FavoritesActivity
-                startActivity(intentPdf);
-            }
+            // Start the FavoritesActivity
+            startActivity(intentPdf);
         });
 
         // Set an OnClickListener to the ImageView
-        backHomeImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Navigate to the HomeFragment
-                navigateToHomeFragment();
-            }
+        backHomeImageView.setOnClickListener(v -> {
+            // Navigate to the HomeFragment
+            navigateToHomeFragment();
         });
 
         // Fetch access token from SharedPreferences
@@ -88,7 +82,6 @@ public class BookDetailActivity extends AppCompatActivity {
             // Log the retrieved access token
             Log.d("AccessToken", "Retrieved Access Token: " + retrievedAccessToken);
             // Store the retrieved access token for later use
-            accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
             Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
@@ -126,12 +119,7 @@ public class BookDetailActivity extends AppCompatActivity {
         Button addToCartButton = findViewById(R.id.btnAddToCart);
 
         //set onClickListener for the button addToCart
-        addToCartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddCartBook();
-            }
-        });
+        addToCartButton.setOnClickListener(v -> AddCartBook());
 
         ImageView imageView = findViewById(R.id.BookImageView);
         TextView textView = findViewById(R.id.txtTitleDetail);
@@ -174,20 +162,18 @@ public class BookDetailActivity extends AppCompatActivity {
         textViewAuthorDecs.setMaxLines(MAX_LINES_COLLAPED);
 
         // Set click listener for "Show more" button
-        showMoreTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isExpanded) {
-                    // Collapse the description
-                    textViewAuthorDecs.setMaxLines(MAX_LINES_COLLAPED);
-                    showMoreTextView.setText("Show more");
-                } else {
-                    // Expand the description
-                    textViewAuthorDecs.setMaxLines(Integer.MAX_VALUE); // Show all lines
-                    showMoreTextView.setText("Show less");
-                }
-                isExpanded = !isExpanded;
+//        showMoreTextView.setOnClickListener(new View.OnClickListener() {
+        showMoreTextView.setOnClickListener(v -> {
+            if (isExpanded) {
+                // Collapse the description
+                textViewAuthorDecs.setMaxLines(MAX_LINES_COLLAPED);
+                showMoreTextView.setText("Show more");
+            } else {
+                // Expand the description
+                textViewAuthorDecs.setMaxLines(Integer.MAX_VALUE); // Show all lines
+                showMoreTextView.setText("Show less");
             }
+            isExpanded = !isExpanded;
         });
     }
 
@@ -224,14 +210,16 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onResponse(Call<AddCartBook> call, Response<AddCartBook> response) {
                 if (response.isSuccessful()) {
                     // Handle successful response
-                    Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
-                    isItemAddedToCart = true;
+//                    Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    Log.d("AddToCart", "Book added to cart: " + response.body());
+                    showCustomToast("Book added to cart", true);
 
                     // Add the bookId to the HashSet
                     addedBookIds.add(bookId);
                 } else {
                     // Handle unsuccessful response
                     Log.e("AddToCart", "Failed to add book to cart: " + response.message());
+                    showCustomToast("Failed to add book to cart", false);
                 }
             }
 
@@ -239,6 +227,7 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onFailure(Call<AddCartBook> call, Throwable t) {
                 // Handle failure
                 Log.e("AddToCart", "Failed to add book to cart", t);
+                showCustomToast("Failed to add book to cart", false);
             }
         });
     }
@@ -256,6 +245,19 @@ public class BookDetailActivity extends AppCompatActivity {
 
         // Finish the BookDetailActivity
         finish();
+    }
+    public void showCustomToast(String message, boolean isSuccess) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(isSuccess ? R.layout.toast_success : R.layout.toast_failure,
+                findViewById(isSuccess ? R.id.text : R.id.text));
+
+        TextView text = layout.findViewById(R.id.text);
+        text.setText(message);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
     }
 
 }

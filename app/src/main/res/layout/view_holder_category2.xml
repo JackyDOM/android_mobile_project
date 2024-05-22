@@ -26,24 +26,26 @@
 
         <TextView
             android:id="@+id/txtTitleCategory2"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="2"
+            android:layout_gravity="center_horizontal"
             android:ellipsize="end"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:maxLines="2"
             android:text="Hello"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/black"
             android:textSize="@dimen/_17sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtPriceCategory2"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="@string/hello"
+            android:textColor="@color/black"
             android:textSize="@dimen/_15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

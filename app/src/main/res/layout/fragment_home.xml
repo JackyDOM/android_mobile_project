@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/generalbook"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/purple_dark"
                 android:textSize="@dimen/_20sp"/>
 
             <Space
@@ -57,10 +57,10 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/_5dp"
             android:id="@+id/recycleViewCategory"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5dp" />
 
         <LinearLayout
             android:gravity="center_vertical"
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/comic_book"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/purple_dark"
                 android:textSize="@dimen/_20sp"/>
 
             <Space
@@ -95,6 +95,12 @@
             android:id="@+id/recycleViewCategory2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_300dp" />
+
+        <TextView
+            android:id="@+id/bookTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp" />
 
     </LinearLayout>
 

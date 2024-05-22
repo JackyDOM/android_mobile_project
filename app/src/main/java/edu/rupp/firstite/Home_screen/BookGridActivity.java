@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -106,14 +108,17 @@ public class BookGridActivity extends AppCompatActivity {
 
                     // Update adapter data with the filtered list of books
                     bookGridAdapter.submitList(filteredList);
+                    showCustomToast("Books loaded successfully", true);
                 } else {
                     Log.d("Fail Author", "Failed to reload banner");
+                    showCustomToast("Failed to load books", false);
                 }
             }
 
             @Override
             public void onFailure(Call<List<BookGridDisplay>> call, Throwable t) {
                 Log.d("Fail Author", "Failed to reload banner", t);
+                showCustomToast("Failed to load books", false);
             }
         });
     }
@@ -129,5 +134,18 @@ public class BookGridActivity extends AppCompatActivity {
 
         // Finish the BookDetailActivity
         finish();
+    }
+    public void showCustomToast(String message, boolean isSuccess) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(isSuccess ? R.layout.toast_success : R.layout.toast_failure,
+                findViewById(isSuccess ? R.id.text : R.id.text));
+
+        TextView text = layout.findViewById(R.id.text);
+        text.setText(message);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
     }
 }
