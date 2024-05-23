@@ -31,6 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CartFragment extends Fragment {
     String accessToken;
+    int userId; // Add this line
 
     private FragmentCartsBinding binding;
     private CartAdapter cartAdapter;
@@ -43,6 +44,9 @@ public class CartFragment extends Fragment {
 
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String retrievedAccessToken = sharedPreferences.getString("access_token", null);
+        userId = sharedPreferences.getInt("user_id", -1);
+
+
 
         if (retrievedAccessToken != null && !retrievedAccessToken.isEmpty()) {
             // Log the retrieved access token
@@ -72,7 +76,8 @@ public class CartFragment extends Fragment {
             if (cartAdapter.getCurrentList().isEmpty()) {
                 Toast.makeText(getContext(), "You need to buy first", Toast.LENGTH_SHORT).show();
             } else {
-                navigateToPaymentScreen();
+                Log.d("CartFragment", "User ID: " + userId);
+//                navigateToPaymentScreen();
             }
         });
 

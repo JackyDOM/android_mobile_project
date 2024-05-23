@@ -2,6 +2,9 @@ package edu.rupp.firstite.payment_screen;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter;
+import android.text.InputType;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +34,14 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
+        // Retrieve user_id, book_id, and price from intent or other source
+        int userId = getIntent().getIntExtra("user_id", 0);
+        int bookId = getIntent().getIntExtra("book_id",0);
+        double price = getIntent().getDoubleExtra("Price", 0);
+
+        // Log userId to Logcat
+        Log.d("PaymentActivity", "User ID: " + userId);
+
         // Initialize Retrofit with base URL and Gson converter factory
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:5000/")
@@ -52,11 +63,39 @@ public class PaymentActivity extends AppCompatActivity {
         Button btnDone = findViewById(R.id.btnDone);
         ImageView btnCancel = findViewById(R.id.btnCancel);
 
+        // Set input type to number and add InputFilter to restrict input to numbers only
+        cardNumber.setInputType(InputType.TYPE_CLASS_NUMBER);
+        cardHolderName.setInputType(InputType.TYPE_CLASS_NUMBER);
+        cvv.setInputType(InputType.TYPE_CLASS_NUMBER);
+        expirationDate.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        // Add input filters to restrict input to numbers only and show a toast if input is invalid
+        InputFilter numberFilter = new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                for (int i = start; i < end; i++) {
+                    if (!Character.isDigit(source.charAt(i))) {
+                        Toast.makeText(PaymentActivity.this, "Fields must be numbers only", Toast.LENGTH_SHORT).show();
+                        return "";
+                    }
+                }
+                return null;
+            }
+        };
+
+        cardNumber.setFilters(new InputFilter[]{numberFilter});
+        cardHolderName.setFilters(new InputFilter[]{numberFilter});
+        cvv.setFilters(new InputFilter[]{numberFilter});
+        expirationDate.setFilters(new InputFilter[]{numberFilter});
+
+
         // Set click listener for Done button
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get input values
+
+
+
                 String cardNumberText = cardNumber.getText().toString().trim();
                 String cardHolderNameText = cardHolderName.getText().toString().trim();
                 String expirationDateText = expirationDate.getText().toString().trim();
@@ -67,7 +106,7 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(PaymentActivity.this, "Fields must not be empty", Toast.LENGTH_LONG).show();
                 } else {
                     // Create PaymentCart object
-                    PaymentCart paymentCart = new PaymentCart(0, 0, cardNumberText, cardHolderNameText, expirationDateText, cvvText, 0);
+                    PaymentCart paymentCart = new PaymentCart(userId, bookId, cardNumberText, cardHolderNameText, expirationDateText, cvvText, price);
 
                     // Call makePayment method
                     makePayment(paymentCart);
