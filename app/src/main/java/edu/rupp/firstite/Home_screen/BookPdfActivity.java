@@ -47,3 +47,5 @@ public class BookPdfActivity extends AppCompatActivity {
         webView.loadUrl(pdfUrl);
     }
 }
+
+
