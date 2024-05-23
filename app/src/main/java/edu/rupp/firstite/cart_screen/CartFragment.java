@@ -101,6 +101,8 @@ public class CartFragment extends Fragment {
         return binding.getRoot();
     }
 
+
+
     private void loadCartImage(){
         Retrofit httpClient = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2:5000/")

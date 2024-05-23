@@ -11,5 +11,3 @@ public interface ApiServiceYourBook {
     @GET("/events/payment")
     Call<List<YourBookModal>> loadYourBook(@Header("Authorization") String authorizationHeader);
 }
-
-

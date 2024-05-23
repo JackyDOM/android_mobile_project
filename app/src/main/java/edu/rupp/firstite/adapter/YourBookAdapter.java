@@ -81,5 +81,3 @@ public class YourBookAdapter extends ListAdapter<YourBookModal, YourBookAdapter.
         }
     }
 }
-
-
