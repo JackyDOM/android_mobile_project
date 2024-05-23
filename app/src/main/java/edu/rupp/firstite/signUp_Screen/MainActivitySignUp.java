@@ -85,12 +85,15 @@ public class MainActivitySignUp extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
+                    int userId = authResponse.getUser().getId();
                     Toast.makeText(MainActivitySignUp.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
                     Log.d("SignUp", "Access Token: " + accessToken);
+                    Log.d("SignUp", "User ID: " + userId);
 
                     // Store the access token in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("access_token", accessToken);
+                    editor.putInt("user_id", userId);
                     editor.apply();
 
                     // Retrieve the access token from SharedPreferences
@@ -138,11 +141,25 @@ public class MainActivitySignUp extends AppCompatActivity {
 
     public static class AuthResponse {
         private String access_token;
+        private User user;
 
         public String getAccessToken() {
             return access_token;
         }
+
+        public User getUser() {
+            return user;
+        }
+
+        public static class User {
+            private int id;
+
+            public int getId() {
+                return id;
+            }
+        }
     }
+
 
     public interface ApiService {
         @POST("authorization/register") // Endpoint only

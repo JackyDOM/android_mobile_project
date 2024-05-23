@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                     // Store the access token in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("access_token", accessToken);
+                    editor.putInt("user_id", userId);
                     editor.apply();
 
                     // Retrieve the access token from SharedPreferences
