@@ -1,14 +1,24 @@
 package edu.rupp.firstite.modals;
 
 public class Book {
-    private int id;
+    private int id; // This is the cart item ID
     private int quantity;
     private BookData book;
 
     public static class BookData {
+        private int id; // This is the actual book ID
         private String book_image;
         private String title;
         private String price;
+
+        // Getters and setters for all fields
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
 
         public String getTitle() {
             return title;
@@ -35,6 +45,7 @@ public class Book {
         }
     }
 
+    // Getters and setters for all fields
     public int getId() {
         return id;
     }

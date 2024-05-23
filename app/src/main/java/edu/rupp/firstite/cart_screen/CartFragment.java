@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.rupp.firstite.adapter.CartAdapter;
@@ -71,16 +72,31 @@ public class CartFragment extends Fragment {
         cartAdapter = new CartAdapter(getContext());
         binding.recycleViewCart.setAdapter(cartAdapter);
 
-        // Add click listener for Pay Now button
         binding.btnPaynow.setOnClickListener(v -> {
-            if (cartAdapter.getCurrentList().isEmpty()) {
+            List<Book> currentList = cartAdapter.getCurrentList();
+
+            if (currentList.isEmpty()) {
                 Toast.makeText(getContext(), "You need to buy first", Toast.LENGTH_SHORT).show();
             } else {
+                ArrayList<Integer> bookIds = new ArrayList<>();
+                ArrayList<Double> prices = new ArrayList<>();
+                for (Book book : currentList) {
+                    Log.d("CartFragment", "Cart Item ID: " + book.getId());
+                    Log.d("CartFragment", "Actual Book ID: " + book.getBook().getId());
+                    Log.d("CartFragment", "Price: " + book.getBook().getPrice());
+
+                    bookIds.add(book.getBook().getId());
+                    prices.add(Double.parseDouble(book.getBook().getPrice()));
+                }
                 Log.d("CartFragment", "User ID: " + userId);
-//                navigateToPaymentScreen();
+
+                Intent intent = new Intent(getContext(), PaymentActivity.class);
+                intent.putExtra("user_id", userId);
+                intent.putIntegerArrayListExtra("book_ids", bookIds);
+                intent.putExtra("prices", prices);
+                startActivity(intent);
             }
         });
-
 
         return binding.getRoot();
     }

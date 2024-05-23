@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.google.gson.JsonObject;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.YourBook.YourBookActivity;
 import edu.rupp.firstite.signIn_Screen.MainActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,6 +44,7 @@ public class LogoutFragment extends Fragment {
 
         //button signOut
         Button btnLogout = view.findViewById(R.id.btnLogout);
+        Button btnYourbook = view.findViewById(R.id.btnYourbook);
         TextView textViewUsername = view.findViewById(R.id.textViewUsername);
         String username = getActivity().getIntent().getStringExtra("username");
 
@@ -58,6 +60,15 @@ public class LogoutFragment extends Fragment {
             public void onClick(View v) {
                 // call method to handle logout
                 logout();
+            }
+        });
+
+        // back to logout
+        btnYourbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentYourBook = new Intent(getContext(), YourBookActivity.class);
+                startActivity(intentYourBook);
             }
         });
 

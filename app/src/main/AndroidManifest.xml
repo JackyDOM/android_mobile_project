@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".YourBook.YourBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".Home_screen.BookPdfActivity"
             android:exported="false" />
         <activity

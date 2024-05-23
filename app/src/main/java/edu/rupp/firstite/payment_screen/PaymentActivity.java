@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 import edu.rupp.firstite.R;
 import edu.rupp.firstite.modals.PaymentCart;
 import edu.rupp.firstite.service.ApiServicePayment;
@@ -26,7 +28,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PaymentActivity extends AppCompatActivity {
 
     private ApiServicePayment apiServicePayment;
-
     private String accessToken;
 
     @Override
@@ -34,13 +35,19 @@ public class PaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        // Retrieve user_id, book_id, and price from intent or other source
+        // Retrieve user_id, book_ids, and prices from intent
         int userId = getIntent().getIntExtra("user_id", 0);
-        int bookId = getIntent().getIntExtra("book_id",0);
-        double price = getIntent().getDoubleExtra("Price", 0);
+        ArrayList<Integer> bookIds = getIntent().getIntegerArrayListExtra("book_ids");
+        ArrayList<Double> prices = (ArrayList<Double>) getIntent().getSerializableExtra("prices");
 
-        // Log userId to Logcat
+        // Log userId and book details to Logcat
         Log.d("PaymentActivity", "User ID: " + userId);
+        if (bookIds != null && prices != null) {
+            for (int i = 0; i < bookIds.size(); i++) {
+                Log.d("PaymentActivity", "Actual Book ID: " + bookIds.get(i));
+                Log.d("PaymentActivity", "Price: " + prices.get(i));
+            }
+        }
 
         // Initialize Retrofit with base URL and Gson converter factory
         Retrofit retrofit = new Retrofit.Builder()
@@ -94,8 +101,6 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
                 String cardNumberText = cardNumber.getText().toString().trim();
                 String cardHolderNameText = cardHolderName.getText().toString().trim();
                 String expirationDateText = expirationDate.getText().toString().trim();
@@ -106,7 +111,7 @@ public class PaymentActivity extends AppCompatActivity {
                     Toast.makeText(PaymentActivity.this, "Fields must not be empty", Toast.LENGTH_LONG).show();
                 } else {
                     // Create PaymentCart object
-                    PaymentCart paymentCart = new PaymentCart(userId, bookId, cardNumberText, cardHolderNameText, expirationDateText, cvvText, price);
+                    PaymentCart paymentCart = new PaymentCart(userId, bookIds.get(0), cardNumberText, cardHolderNameText, expirationDateText, cvvText, prices.get(0));
 
                     // Call makePayment method
                     makePayment(paymentCart);
