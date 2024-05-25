@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.adapter.BookGridAdapter;
 import edu.rupp.firstite.modals.BookGridDisplay;
 import edu.rupp.firstite.service.ApiServiceBookGrid;
@@ -64,7 +64,8 @@ public class BookGridActivity extends AppCompatActivity {
             Log.d("AccessToken", "Retrieved Access Token: " + accessToken);
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(this, "Access token not available or empty", false);
         }
 
         // Initialize the adapter with ListAdapter

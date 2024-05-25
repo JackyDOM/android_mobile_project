@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -22,12 +21,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.adapter.BookAuthorAdapter;
-import edu.rupp.firstite.adapter.CategoryAdapter;
 import edu.rupp.firstite.modals.AuthorBookDisplay;
-import edu.rupp.firstite.modals.CategoryBanner1;
 import edu.rupp.firstite.service.ApiServiceAuthorBook;
-import edu.rupp.firstite.service.ApiServiceCategory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -56,7 +53,8 @@ public class AuthorInformationActivity extends AppCompatActivity {
             Log.d("AccessToken", "Retrieved Access Token: " + accessToken);
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(this, "Access token not available or empty", false);
         }
 
         // Initialize the adapter with ListAdapter
@@ -181,12 +179,14 @@ public class AuthorInformationActivity extends AppCompatActivity {
                     bookAuthorAdapter.submitList(filteredList);
                 } else {
                     Log.d("Fail Author", "Failed to reload banner");
+                    ToastUtil.showCustomToast(AuthorInformationActivity.this, "Failed to reload banner", false);
                 }
             }
 
             @Override
             public void onFailure(Call<List<AuthorBookDisplay>> call, Throwable t) {
                 Log.d("Fail Author", "Failed to reload banner", t);
+                ToastUtil.showCustomToast(AuthorInformationActivity.this, "Failed to reload banner", false);
             }
         });
     }

@@ -6,24 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".signUp_Screen.MainActivitySignUp">
 
         <RelativeLayout
             android:id="@+id/SignUpUsernameRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40dp">
+            android:layout_marginTop="@dimen/_30dp">
 
             <TextView
                 android:id="@+id/txtViewUsernameAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_13dp"
+                android:layout_marginStart="@dimen/_13dp"
                 android:text="@string/username_banner"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
@@ -33,9 +31,12 @@
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
+                android:autofillHints=""
                 android:hint="@string/username"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="@dimen/_10dp"/>
+                android:layout_marginStart="@dimen/_10dp"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/edit_text_color_state_list"/>
 
         </RelativeLayout>
 
@@ -45,13 +46,13 @@
             android:id="@+id/SignUpEmailRelativeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40dp">
+            android:layout_marginTop="@dimen/_30dp">
 
             <TextView
                 android:id="@+id/txtViewEmailAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_13dp"
+                android:layout_marginStart="@dimen/_13dp"
                 android:text="@string/email_address_banner"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
@@ -61,9 +62,12 @@
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
+                android:autofillHints=""
                 android:hint="@string/email_address"
                 android:inputType="textEmailAddress"
-                android:layout_marginLeft="@dimen/_10dp"/>
+                android:layout_marginStart="@dimen/_10dp"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/edit_text_color_state_list"/>
 
         </RelativeLayout>
 
@@ -72,12 +76,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SignUpEmailRelativeLayout"
-            android:layout_marginTop="@dimen/_50dp">
+            android:layout_marginTop="@dimen/_30dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_13dp"
+                android:layout_marginStart="@dimen/_13dp"
                 android:text="@string/password_8_characters_banner"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
@@ -87,9 +91,12 @@
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
+                android:autofillHints=""
                 android:hint="@string/enter_address_signUp"
                 android:inputType="textPassword"
-                android:layout_marginLeft="@dimen/_10dp"/>
+                android:layout_marginStart="@dimen/_10dp"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/edit_text_color_state_list"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -97,12 +104,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SignUpEmailRelativeLayout2"
-            android:layout_marginTop="@dimen/_50dp">
+            android:layout_marginTop="@dimen/_30dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_13dp"
+                android:layout_marginStart="@dimen/_13dp"
                 android:text="@string/gender_banner"
                 android:textSize="@dimen/_17sp"
                 android:textColor="@color/_31bd5b"/>
@@ -112,9 +119,12 @@
                 android:layout_marginTop="@dimen/_30dp"
                 android:layout_width="@dimen/_390dp"
                 android:layout_height="@dimen/_60dp"
+                android:autofillHints=" "
                 android:hint="@string/gender"
                 android:inputType="textPersonName"
-                android:layout_marginLeft="@dimen/_10dp"/>
+                android:layout_marginStart="@dimen/_10dp"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/edit_text_color_state_list"/>
         </RelativeLayout>
 
         <TextView
@@ -122,10 +132,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/SignUpEmailRelativeLayout4"
-            android:layout_marginTop="@dimen/_60dp"
-            android:layout_marginLeft="@dimen/_20dp"
+            android:layout_marginTop="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_30dp"
             android:textSize="@dimen/_16sp"
-            android:textColor="@color/_838584"
+            android:textColor="@color/_0b870f"
             android:text="@string/text_signUp"/>
 
         <TextView
@@ -133,10 +143,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtViewDescription"
-            android:layout_marginLeft="@dimen/_20dp"
-            android:layout_marginTop="@dimen/_60dp"
+            android:layout_marginStart="@dimen/_30dp"
+            android:layout_marginTop="@dimen/_40dp"
             android:textSize="@dimen/_16sp"
-            android:textColor="@color/_838584"
+            android:textColor="@color/_0b870f"
             android:text="@string/long_txt_SignUp"/>
 
         <Button
@@ -144,7 +154,7 @@
             android:layout_width="@dimen/_400dp"
             android:layout_height="@dimen/_60dp"
             android:layout_below="@+id/txtFullDescription1"
-            android:layout_marginTop="@dimen/_60dp"
+            android:layout_marginTop="@dimen/_40dp"
             android:textSize="@dimen/_20sp"
             android:layout_centerHorizontal="true"
             android:text="@string/sign_up"/>
@@ -159,7 +169,7 @@
 
             <TextView
                 android:textSize="@dimen/_17sp"
-                android:layout_marginLeft="@dimen/_10dp"
+                android:layout_marginStart="@dimen/_10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/already_have_account"

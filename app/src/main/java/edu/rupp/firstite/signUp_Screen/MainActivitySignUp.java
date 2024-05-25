@@ -9,9 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import edu.rupp.firstite.buttomNavigationBar.MainActivityHomeScreen;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.R;
 import edu.rupp.firstite.signIn_Screen.MainActivity;
 import retrofit2.Call;
@@ -63,7 +62,18 @@ public class MainActivitySignUp extends AppCompatActivity {
         String gender = editTextGender.getText().toString().trim();
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || gender.isEmpty()) {
-            Toast.makeText(MainActivitySignUp.this, "All fields cannot be empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(MainActivitySignUp.this, "All fields cannot be empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(this, "All fields cannot be empty", false);
+            return;
+        }
+        if (!email.contains("@") || !email.contains(".")|| !email.contains("com")) {
+//            Toast.makeText(MainActivitySignUp.this, "Invalid email address", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(this, "Invalid email address", false);
+            return;
+        }
+        if (password.length() < 8) {
+//            Toast.makeText(MainActivitySignUp.this, "Password must be at least 8 characters", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(this, "Password must be at least 8 characters", false);
             return;
         }
 
@@ -86,7 +96,8 @@ public class MainActivitySignUp extends AppCompatActivity {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
                     int userId = authResponse.getUser().getId();
-                    Toast.makeText(MainActivitySignUp.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivitySignUp.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(MainActivitySignUp.this, "Sign-up successful", true);
                     Log.d("SignUp", "Access Token: " + accessToken);
                     Log.d("SignUp", "User ID: " + userId);
 
@@ -100,19 +111,22 @@ public class MainActivitySignUp extends AppCompatActivity {
                     String storedToken = sharedPreferences.getString("access_token", null);
                     Log.d("SignUp", "Stored Access Token: " + storedToken);
 
-                    Intent intent_success = new Intent(MainActivitySignUp.this, MainActivityHomeScreen.class);
-                    intent_success.putExtra("username", username); // Pass the username to MainActivityHomeScreen
-                    startActivity(intent_success);
+                    Intent intentSuccess = new Intent(MainActivitySignUp.this, MainActivity.class);
+                    intentSuccess.putExtra("username", username);
+                    startActivity(intentSuccess);
+                    finish();
 
                 } else {
-                    Toast.makeText(MainActivitySignUp.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivitySignUp.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(MainActivitySignUp.this, "Failed to sign up", false);
                     Log.e("SignUp", "Failed to sign up: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Toast.makeText(MainActivitySignUp.this, "Failed to sign up", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivitySignUp.this, "Failed to sign up", Toast.LENGTH_SHORT).show();
+                ToastUtil.showCustomToast(MainActivitySignUp.this, "Failed to sign up", false);
                 Log.e("SignUp", "Failed to sign up", t);
             }
         });

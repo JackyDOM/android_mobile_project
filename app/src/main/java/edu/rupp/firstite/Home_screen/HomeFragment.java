@@ -9,14 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.adapter.BannerAdaper;
 import edu.rupp.firstite.adapter.Category2Adapter;
 import edu.rupp.firstite.adapter.CategoryAdapter;
@@ -99,7 +98,8 @@ public class HomeFragment extends Fragment {
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
 
 
@@ -182,7 +182,8 @@ public class HomeFragment extends Fragment {
                     // Update adapter data with response body
                     bannerAdaper.submitList(response.body());
                 } else {
-                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(requireContext(), "Failed reload banner", false);
                 }
             }
 
@@ -220,13 +221,15 @@ public class HomeFragment extends Fragment {
                     // Update adapter data with filtered list
                     categoryAdapter.submitList(filteredList);
                 } else {
-                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(requireContext(), "Failed reload banner", false);
                 }
             }
 
             @Override
             public void onFailure(Call<List<CategoryBanner1>> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                ToastUtil.showCustomToast(requireContext(), t.getMessage(), false);
             }
         });
 
@@ -259,13 +262,16 @@ public class HomeFragment extends Fragment {
                     // Update adapter data with filtered list
                     category2Adapter.submitList(filteredList);
                 } else {
-                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getContext(), "Failed reload banner", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(requireContext(), "Failed reload banner", false);
+
                 }
             }
 
             @Override
             public void onFailure(Call<List<CategoryBanner2>> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                ToastUtil.showCustomToast(requireContext(), t.getMessage(), false);
             }
         });
     }
