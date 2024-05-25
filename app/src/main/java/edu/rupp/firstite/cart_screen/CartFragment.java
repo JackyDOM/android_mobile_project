@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,9 +17,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.adapter.CartAdapter;
 import edu.rupp.firstite.databinding.FragmentCartsBinding;
-import edu.rupp.firstite.modals.Banner;
 import edu.rupp.firstite.modals.Book;
 import edu.rupp.firstite.payment_screen.PaymentActivity;
 import edu.rupp.firstite.service.ApiServiceGetCart;
@@ -55,7 +54,8 @@ public class CartFragment extends Fragment {
 
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
 
 
@@ -76,7 +76,8 @@ public class CartFragment extends Fragment {
             List<Book> currentList = cartAdapter.getCurrentList();
 
             if (currentList.isEmpty()) {
-                Toast.makeText(getContext(), "You need to buy first", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "You need to buy first", Toast.LENGTH_SHORT).show();
+                ToastUtil.showCustomToast(requireContext(), "You need to buy first", false);
             } else {
                 ArrayList<Integer> bookIds = new ArrayList<>();
                 ArrayList<Double> prices = new ArrayList<>();
@@ -120,14 +121,16 @@ public class CartFragment extends Fragment {
                         cartAdapter.submitList(books);
                     }
                 } else {
-                    Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(requireContext(), "Failed to load cart items", false);
                     Log.e("CartFragment", "Failed to load cart items: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
-                Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+                ToastUtil.showCustomToast(requireContext(), "Failed to load cart items", false);
                 Log.e("CartFragment", "Failed to load cart items", t);            }
         });
     }
@@ -136,6 +139,4 @@ public class CartFragment extends Fragment {
         Intent intent = new Intent(getContext(), PaymentActivity.class);
         startActivity(intent);
     }
-
-
 }

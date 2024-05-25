@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.adapter.SearchingAdapter;
 import edu.rupp.firstite.databinding.FragmentSearchBinding;
 import edu.rupp.firstite.modals.Searching;
@@ -53,7 +52,8 @@ public class SearchFragment extends Fragment {
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
 
         setupRecyclerView();
@@ -78,7 +78,8 @@ public class SearchFragment extends Fragment {
                 if (!TextUtils.isEmpty(query)) {
                     searchBook(query);
                 } else {
-                    Toast.makeText(getContext(), "Please enter a title to search", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Please enter a title to search", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(requireContext(), "Please enter a title to search", false);
                 }
                 return true;
             }
@@ -108,17 +109,20 @@ public class SearchFragment extends Fragment {
                     if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
                         searchingAdapter.updateData(response.body());
                     } else {
-                        Toast.makeText(getContext(), "Title not found", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "Title not found", Toast.LENGTH_SHORT).show();
+                        ToastUtil.showCustomToast(requireContext(), "Title not found", false);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<Searching>> call, Throwable t) {
-                    Toast.makeText(getContext(), "Failed to fetch data", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Failed to fetch data", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(requireContext(), "Failed to fetch data", false);
                 }
             });
         } else {
-            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_SHORT).show();
+            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
     }
 }

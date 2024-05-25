@@ -29,7 +29,8 @@
             android:layout_height="wrap_content"
             android:text="@string/hello_text"
             android:textSize="@dimen/_20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 

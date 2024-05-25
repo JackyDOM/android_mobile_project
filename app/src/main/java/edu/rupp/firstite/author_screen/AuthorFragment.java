@@ -1,7 +1,6 @@
 package edu.rupp.firstite.author_screen;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -12,16 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.List;
 
-import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.adapter.AuthorAdapter;
 import edu.rupp.firstite.databinding.FragmentAuthorBinding;
 import edu.rupp.firstite.modals.Author;
-import edu.rupp.firstite.modals.Banner;
 import edu.rupp.firstite.service.ApiServiceAuthor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,7 +47,8 @@ public class AuthorFragment extends Fragment {
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
 
 
@@ -86,7 +83,8 @@ public class AuthorFragment extends Fragment {
                     // Update adapter data with response body
                     authorAdapter.submitList(response.body());
                 } else {
-                    Toast.makeText(getContext(), "Failed reload Author", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getContext(), "Failed reload Author", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(requireContext(), "Failed reload Author", false);
                 }
             }
 
@@ -94,7 +92,8 @@ public class AuthorFragment extends Fragment {
             public void onFailure(Call<List<Author>> call, Throwable t) {
                 // Log the error message
                 Log.e("AuthorFragment", "Failed to load authors: " + t.getMessage(), t);
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                ToastUtil.showCustomToast(requireContext(), t.getMessage(), false);
             }
         });
     }

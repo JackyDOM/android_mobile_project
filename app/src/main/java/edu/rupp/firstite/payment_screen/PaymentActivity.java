@@ -10,13 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.modals.PaymentCart;
 import edu.rupp.firstite.service.ApiServicePayment;
 import retrofit2.Call;
@@ -82,7 +82,8 @@ public class PaymentActivity extends AppCompatActivity {
             public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
                 for (int i = start; i < end; i++) {
                     if (!Character.isDigit(source.charAt(i))) {
-                        Toast.makeText(PaymentActivity.this, "Fields must be numbers only", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(PaymentActivity.this, "Fields must be numbers only", Toast.LENGTH_SHORT).show();
+                        ToastUtil.showCustomToast(PaymentActivity.this, "Fields must be numbers only", false);
                         return "";
                     }
                 }
@@ -108,7 +109,8 @@ public class PaymentActivity extends AppCompatActivity {
 
                 // Validate input
                 if (cardNumberText.isEmpty() || cardHolderNameText.isEmpty() || expirationDateText.isEmpty() || cvvText.isEmpty()) {
-                    Toast.makeText(PaymentActivity.this, "Fields must not be empty", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(PaymentActivity.this, "Fields must not be empty", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(PaymentActivity.this, "Fields must not be empty", false);
                 } else {
                     // Create PaymentCart object
                     PaymentCart paymentCart = new PaymentCart(userId, bookIds.get(0), cardNumberText, cardHolderNameText, expirationDateText, cvvText, prices.get(0));
@@ -141,11 +143,13 @@ public class PaymentActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if (response.isSuccessful()) {
                     // Handle success
-                    Toast.makeText(PaymentActivity.this, "Payment successful", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(PaymentActivity.this, "Payment successful", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(PaymentActivity.this, "Payment successful", true);
                     finish(); // Finish the activity after successful payment
                 } else {
                     // Handle failure
-                    Toast.makeText(PaymentActivity.this, "Payment failed", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(PaymentActivity.this, "Payment failed", Toast.LENGTH_LONG).show();
+                    ToastUtil.showCustomToast(PaymentActivity.this, "Payment failed", false);
                 }
             }
 
@@ -155,7 +159,8 @@ public class PaymentActivity extends AppCompatActivity {
                 Log.e("PaymentActivity", "Error making payment: " + t.getMessage());
 
                 // Handle failure
-                Toast.makeText(PaymentActivity.this, "Payment failed: " + t.getMessage(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(PaymentActivity.this, "Payment failed: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                ToastUtil.showCustomToast(PaymentActivity.this, "Payment failed", false);
             }
         });
     }

@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.JsonObject;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.YourBook.YourBookActivity;
 import edu.rupp.firstite.signIn_Screen.MainActivity;
 import retrofit2.Call;
@@ -102,17 +102,20 @@ public class LogoutFragment extends Fragment {
                     startActivity(intent);
                     requireActivity().finish();
                     // Toast success
-                    Toast.makeText(getContext(), "Logout successful", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Logout successful", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(getContext(), "Logout successful", true);
                 } else {
                     // Handle error
-                    Toast.makeText(getContext(), "Logout failed", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), "Logout failed", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(getContext(), "Logout failed", false);
                 }
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
                 // Handle failure
-                Toast.makeText(getContext(), "Logout failed", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Logout failed", Toast.LENGTH_SHORT).show();
+                ToastUtil.showCustomToast(getContext(), "Logout failed", false);
             }
         });
     }

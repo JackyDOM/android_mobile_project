@@ -19,7 +19,8 @@
         android:layout_height="wrap_content"
         android:text="@string/title_text"
         android:textSize="@dimen/_18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/txtPriceBookGrid"
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:text="@string/title_text"
         android:textSize="@dimen/_18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
 </LinearLayout>

@@ -1,15 +1,11 @@
 package edu.rupp.firstite.adapter;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,9 +20,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.databinding.ViewHolderCartBinding;
 import edu.rupp.firstite.modals.Book;
 import edu.rupp.firstite.service.ApiServiceDeleteCart;
@@ -210,7 +206,8 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
 
                     if (response.isSuccessful()) {
                         // Item successfully deleted from the server
-                        Toast.makeText(context, "Item deleted successfully", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "Item deleted successfully", Toast.LENGTH_SHORT).show();
+                        ToastUtil.showCustomToast(context, "Item deleted successfully", true);
 
                         // Remove the item from the RecyclerView
                         removeItemAndUpdateTotal(itemId);

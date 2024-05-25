@@ -34,7 +34,8 @@
             android:textAppearance="?android:textAppearanceMedium"
             android:text="@string/hello"
             android:textSize="@dimen/_17sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/txtPriceCategory"
@@ -43,7 +44,8 @@
             android:layout_height="wrap_content"
             android:text="@string/hello"
             android:textSize="@dimen/_15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 

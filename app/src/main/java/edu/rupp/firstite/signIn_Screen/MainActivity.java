@@ -7,11 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import edu.rupp.firstite.Home_screen.HomeFragment;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.buttomNavigationBar.MainActivityHomeScreen;
 import edu.rupp.firstite.signUp_Screen.MainActivitySignUp;
 import edu.rupp.firstite.R;
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void authenticateUser() {
         EditText edtUsername = findViewById(R.id.editTextEmail);
         EditText edtPassword = findViewById(R.id.editTextPassword);
@@ -63,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (username.isEmpty() || password.isEmpty()) {
             // Show a toast message indicating that both fields are required
-            Toast.makeText(MainActivity.this, "Username or password cannot be empty", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, "Username or password cannot be empty", Toast.LENGTH_SHORT).show();
+            ToastUtil.showCustomToast(this, "Username or password cannot be empty", false);
             return;
         }
 
@@ -86,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
                     int userId = authResponse.getUserId(); // Get user_id here
-                    Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
+                   ToastUtil.showCustomToast(MainActivity.this, "Sign-in successful", true);
                     Log.d("SignIn", "Access Token: " + accessToken);
                     Log.d("SignIn", "User ID: " + userId); // Print user_id
 
@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     editor.apply();
 
                     // Retrieve the access token from SharedPreferences
-                    String storedToken = sharedPreferences.getString("access_token", null);
-                    Log.d("SignIn", "Stored Access Token: " + storedToken);
+//                    String storedToken = sharedPreferences.getString("access_token", null);
+                    ToastUtil.showCustomToast(MainActivity.this, "Stored Access Token: " + accessToken, true);
 
                     // Example usage: If you want to navigate to HomeFragment after successful sign-in
 //                    getSupportFragmentManager().beginTransaction()
@@ -114,14 +114,16 @@ public class MainActivity extends AppCompatActivity {
 //                            .commit();
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(MainActivity.this, "Failed to sign in", false);
                     Log.e("SignIn", "Failed to sign in: " + response.message());
                 }
             }
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
+               ToastUtil.showCustomToast(MainActivity.this, "Failed to sign in", false);
                 Log.e("SignIn", "Failed to sign in", t);
             }
         });

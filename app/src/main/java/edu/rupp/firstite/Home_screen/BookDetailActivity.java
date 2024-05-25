@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -20,14 +19,11 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashSet;
-import java.util.List;
 
 import edu.rupp.firstite.R;
+import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.modals.AddCartBook;
-import edu.rupp.firstite.modals.Banner;
-import edu.rupp.firstite.service.ApiServiceBanner;
 import edu.rupp.firstite.service.ApiServiceCartBook;
-import edu.rupp.firstite.signIn_Screen.MainActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -91,7 +87,8 @@ public class BookDetailActivity extends AppCompatActivity {
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
-            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+            ToastUtil.showCustomToast(this, "Access token not available or empty", false);
         }
 
 
@@ -224,21 +221,24 @@ public class BookDetailActivity extends AppCompatActivity {
             public void onResponse(Call<AddCartBook> call, Response<AddCartBook> response) {
                 if (response.isSuccessful()) {
                     // Handle successful response
-                    Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    ToastUtil.showCustomToast(BookDetailActivity.this, "Successful", true);
                     isItemAddedToCart = true;
 
                     // Add the bookId to the HashSet
                     addedBookIds.add(bookId);
                 } else {
                     // Handle unsuccessful response
-                    Log.e("AddToCart", "Failed to add book to cart: " + response.message());
+//                    Log.e("AddToCart", "Failed to add book to cart: " + response.message());
+                    ToastUtil.showCustomToast(BookDetailActivity.this, "Failed to add book to cart", false);
                 }
             }
 
             @Override
             public void onFailure(Call<AddCartBook> call, Throwable t) {
                 // Handle failure
-                Log.e("AddToCart", "Failed to add book to cart", t);
+//                Log.e("AddToCart", "Failed to add book to cart", t);
+                ToastUtil.showCustomToast(BookDetailActivity.this, "Failed to add book to cart", false);
             }
         });
     }
