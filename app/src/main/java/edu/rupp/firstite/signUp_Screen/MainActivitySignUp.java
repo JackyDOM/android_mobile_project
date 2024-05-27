@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import edu.rupp.firstite.buttomNavigationBar.MainActivityHomeScreen;
 import edu.rupp.firstite.utils.ToastUtil;
 import edu.rupp.firstite.R;
 import edu.rupp.firstite.signIn_Screen.MainActivity;
@@ -111,7 +112,7 @@ public class MainActivitySignUp extends AppCompatActivity {
                     String storedToken = sharedPreferences.getString("access_token", null);
                     Log.d("SignUp", "Stored Access Token: " + storedToken);
 
-                    Intent intentSuccess = new Intent(MainActivitySignUp.this, MainActivity.class);
+                    Intent intentSuccess = new Intent(MainActivitySignUp.this, MainActivityHomeScreen.class);
                     intentSuccess.putExtra("username", username);
                     startActivity(intentSuccess);
                     finish();

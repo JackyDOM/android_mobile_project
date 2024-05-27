@@ -36,12 +36,12 @@ public class YourBookAdapter extends ListAdapter<YourBookModal, YourBookAdapter.
         super(new DiffUtil.ItemCallback<YourBookModal>() {
             @Override
             public boolean areItemsTheSame(@NonNull YourBookModal oldItem, @NonNull YourBookModal newItem) {
-                return oldItem.getId() == newItem.getId();
+                return oldItem == newItem;
             }
 
             @Override
             public boolean areContentsTheSame(@NonNull YourBookModal oldItem, @NonNull YourBookModal newItem) {
-                return oldItem.equals(newItem);
+                return oldItem.getId() == newItem.getId();
             }
         });
         this.accessToken = accessToken;

@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
                     // Retrieve the access token from SharedPreferences
 //                    String storedToken = sharedPreferences.getString("access_token", null);
-                    ToastUtil.showCustomToast(MainActivity.this, "Stored Access Token: " + accessToken, true);
+//                    ToastUtil.showCustomToast(MainActivity.this, "Stored Access Token: " + accessToken, true);
 
                     // Example usage: If you want to navigate to HomeFragment after successful sign-in
 //                    getSupportFragmentManager().beginTransaction()
