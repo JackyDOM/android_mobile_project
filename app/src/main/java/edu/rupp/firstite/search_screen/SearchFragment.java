@@ -98,7 +98,7 @@ public class SearchFragment extends Fragment {
     private void searchBook(String title) {
         if (accessToken != null) {
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:5000/")
+                    .baseUrl("https://elibra.skinme.store/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 

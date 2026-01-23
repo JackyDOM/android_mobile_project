@@ -51,7 +51,7 @@ public class PaymentActivity extends AppCompatActivity {
 
         // Initialize Retrofit with base URL and Gson converter factory
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

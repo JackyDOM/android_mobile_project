@@ -169,7 +169,7 @@ public class HomeFragment extends Fragment {
 
     private void loadBannerImage(){
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceBanner apiServiceBanner = httpClient.create(ApiServiceBanner.class);
@@ -196,7 +196,7 @@ public class HomeFragment extends Fragment {
 
     private void loadCategoryImage(){
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceCategory apiServiceCategory = httpClient.create(ApiServiceCategory.class);
@@ -237,7 +237,7 @@ public class HomeFragment extends Fragment {
 
     private void loadCategory2Image(){
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceCategory2 apiServiceCategory2 = httpClient.create(ApiServiceCategory2.class);

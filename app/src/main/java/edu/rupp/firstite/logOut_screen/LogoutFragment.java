@@ -29,7 +29,7 @@ import retrofit2.http.POST;
 
 public class LogoutFragment extends Fragment {
 
-    private static final String BASE_URL = "http://10.0.2.2:5000/";
+    private static final String BASE_URL = "https://elibra.skinme.store/";
 
     interface YourApiInterface {
         @POST("authorization/logout")

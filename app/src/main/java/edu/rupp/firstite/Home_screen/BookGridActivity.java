@@ -86,7 +86,7 @@ public class BookGridActivity extends AppCompatActivity {
 
     private void FilterCategoryBook(){
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceBookGrid apiServiceBookGrid = httpClient.create(ApiServiceBookGrid.class);

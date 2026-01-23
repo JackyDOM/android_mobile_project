@@ -144,7 +144,7 @@ public class AuthorInformationActivity extends AppCompatActivity {
 
     private void loadCategoryImage() {
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceAuthorBook apiServiceCategory = httpClient.create(ApiServiceAuthorBook.class);

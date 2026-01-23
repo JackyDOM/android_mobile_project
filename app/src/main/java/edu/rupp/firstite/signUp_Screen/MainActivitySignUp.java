@@ -83,7 +83,7 @@ public class MainActivitySignUp extends AppCompatActivity {
         AuthRequest request = new AuthRequest(username, email, password, gender); // Remove MainActivitySignUp from AuthRequest
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/") // Base URL without the endpoint
+                .baseUrl("https://elibra.skinme.store/") // Base URL without the endpoint
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

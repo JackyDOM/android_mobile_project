@@ -69,7 +69,7 @@ public class AuthorFragment extends Fragment {
 
     private void loadAuthorImage(){
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceAuthor apiServiceAuthor = httpClient.create(ApiServiceAuthor.class);

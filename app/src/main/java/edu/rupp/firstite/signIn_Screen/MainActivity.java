@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
         String password = edtPassword.getText().toString().trim();
 
         if (username.isEmpty() || password.isEmpty()) {
-            // Show a toast message indicating that both fields are required
-//            Toast.makeText(MainActivity.this, "Username or password cannot be empty", Toast.LENGTH_SHORT).show();
             ToastUtil.showCustomToast(this, "Username or password cannot be empty", false);
             return;
         }
@@ -70,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
         AuthRequest request = new AuthRequest(username, password);
 
+        // 1. FIX: The baseUrl should end with a '/' and not contain the endpoint.
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/") // Base URL without the endpoint
+                .baseUrl("https://elibra.skinme.store/") // Corrected Base URL
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -84,11 +83,10 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     AuthResponse authResponse = response.body();
                     String accessToken = authResponse.getAccessToken();
-                    int userId = authResponse.getUserId(); // Get user_id here
-//                    Toast.makeText(MainActivity.this, "Sign-in successful", Toast.LENGTH_SHORT).show();
-                   ToastUtil.showCustomToast(MainActivity.this, "Sign-in successful", true);
+                    int userId = authResponse.getUserId();
+                    ToastUtil.showCustomToast(MainActivity.this, "Sign-in successful", true);
                     Log.d("SignIn", "Access Token: " + accessToken);
-                    Log.d("SignIn", "User ID: " + userId); // Print user_id
+                    Log.d("SignIn", "User ID: " + userId);
 
                     // Store the access token in SharedPreferences
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -96,25 +94,11 @@ public class MainActivity extends AppCompatActivity {
                     editor.putInt("user_id", userId);
                     editor.apply();
 
-                    // Retrieve the access token from SharedPreferences
-//                    String storedToken = sharedPreferences.getString("access_token", null);
-//                    ToastUtil.showCustomToast(MainActivity.this, "Stored Access Token: " + accessToken, true);
-
-                    // Example usage: If you want to navigate to HomeFragment after successful sign-in
-//                    getSupportFragmentManager().beginTransaction()
-//                            .replace(R.id.fragmentHome, new HomeFragment())
-//                            .commit();
                     Intent intent_success = new Intent(MainActivity.this, MainActivityHomeScreen.class);
-                    intent_success.putExtra("username", username); // Pass the username to MainActivityHomeScreen
+                    intent_success.putExtra("username", username);
                     startActivity(intent_success);
 
-//                    HomeFragment homeFragment = new HomeFragment();
-//                    getSupportFragmentManager().beginTransaction()
-//                            .replace(R.id.fragment_container, homeFragment)
-//                            .commit();
-
                 } else {
-//                    Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
                     ToastUtil.showCustomToast(MainActivity.this, "Failed to sign in", false);
                     Log.e("SignIn", "Failed to sign in: " + response.message());
                 }
@@ -122,8 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<AuthResponse> call, Throwable t) {
-//                Toast.makeText(MainActivity.this, "Failed to sign in", Toast.LENGTH_SHORT).show();
-               ToastUtil.showCustomToast(MainActivity.this, "Failed to sign in", false);
+                ToastUtil.showCustomToast(MainActivity.this, "Failed to sign in", false);
                 Log.e("SignIn", "Failed to sign in", t);
             }
         });
@@ -146,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static class AuthResponse {
         private String access_token;
-        private int user_id; // Add user_id field
+        private int user_id;
 
 
         public String getAccessToken() {
@@ -159,7 +142,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public interface ApiService {
-        @POST("authorization/login") // Endpoint only
+        // 2. FIX: The endpoint should be the relative path from the base URL.
+        @POST("authorization/login") // Corrected Endpoint
         Call<AuthResponse> login(@Body AuthRequest request);
     }
 }
