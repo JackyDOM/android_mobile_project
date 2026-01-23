@@ -187,7 +187,7 @@ public class CartAdapter extends ListAdapter<Book, CartAdapter.CartViewHolder> {
         if (accessToken != null && !accessToken.isEmpty()) {
             // Create Retrofit instance
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:5000/") // Base URL of your server
+                    .baseUrl("https://elibra.skinme.store/") // Base URL of your server
                     .addConverterFactory(GsonConverterFactory.create()) // Gson converter factory for JSON parsing
                     .build();
 

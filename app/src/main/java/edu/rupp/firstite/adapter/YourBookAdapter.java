@@ -100,7 +100,7 @@ public class YourBookAdapter extends ListAdapter<YourBookModal, YourBookAdapter.
 
     private void deleteBook(int bookId, int position) {
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

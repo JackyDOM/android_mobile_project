@@ -38,7 +38,8 @@ public class CartFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentCartsBinding.inflate(inflater, container, false);
 
@@ -46,18 +47,16 @@ public class CartFragment extends Fragment {
         String retrievedAccessToken = sharedPreferences.getString("access_token", null);
         userId = sharedPreferences.getInt("user_id", -1);
 
-
-
         if (retrievedAccessToken != null && !retrievedAccessToken.isEmpty()) {
             // Log the retrieved access token
             Log.d("AccessToken", "Retrieved Access Token: " + retrievedAccessToken);
 
         } else {
             // Handle scenario where access token is not available or empty
-//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+            // Toast.makeText(getContext(), "Access token not available or empty",
+            // Toast.LENGTH_LONG).show();
             ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
-
 
         // Store the retrieved access token for later use
         accessToken = retrievedAccessToken;
@@ -67,7 +66,8 @@ public class CartFragment extends Fragment {
             loadCartImage();
         }
 
-        LinearLayoutManager cartLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager cartLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,
+                false);
         binding.recycleViewCart.setLayoutManager(cartLayoutManager);
         cartAdapter = new CartAdapter(getContext());
         binding.recycleViewCart.setAdapter(cartAdapter);
@@ -76,7 +76,8 @@ public class CartFragment extends Fragment {
             List<Book> currentList = cartAdapter.getCurrentList();
 
             if (currentList.isEmpty()) {
-//                Toast.makeText(getContext(), "You need to buy first", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getContext(), "You need to buy first",
+                // Toast.LENGTH_SHORT).show();
                 ToastUtil.showCustomToast(requireContext(), "You need to buy first", false);
             } else {
                 ArrayList<Integer> bookIds = new ArrayList<>();
@@ -102,11 +103,9 @@ public class CartFragment extends Fragment {
         return binding.getRoot();
     }
 
-
-
-    private void loadCartImage(){
+    private void loadCartImage() {
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ApiServiceGetCart apiServiceGetCart = httpClient.create(ApiServiceGetCart.class);
@@ -121,7 +120,8 @@ public class CartFragment extends Fragment {
                         cartAdapter.submitList(books);
                     }
                 } else {
-//                    Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getContext(), "Failed to load cart items",
+                    // Toast.LENGTH_SHORT).show();
                     ToastUtil.showCustomToast(requireContext(), "Failed to load cart items", false);
                     Log.e("CartFragment", "Failed to load cart items: " + response.message());
                 }
@@ -129,9 +129,11 @@ public class CartFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Book>> call, Throwable t) {
-//                Toast.makeText(getContext(), "Failed to load cart items", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getContext(), "Failed to load cart items",
+                // Toast.LENGTH_SHORT).show();
                 ToastUtil.showCustomToast(requireContext(), "Failed to load cart items", false);
-                Log.e("CartFragment", "Failed to load cart items", t);            }
+                Log.e("CartFragment", "Failed to load cart items", t);
+            }
         });
     }
 

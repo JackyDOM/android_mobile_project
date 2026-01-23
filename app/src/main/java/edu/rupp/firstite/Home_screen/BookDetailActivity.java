@@ -45,7 +45,6 @@ public class BookDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book_detail);
         String bookPdf = getIntent().getStringExtra("book_pdf");
 
-
         // Find the ImageView by id
         ImageView backHomeImageView = findViewById(R.id.backHomefragment);
         // Inside your onCreate method after setting up the button visibility conditions
@@ -87,10 +86,10 @@ public class BookDetailActivity extends AppCompatActivity {
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
-//            Toast.makeText(this, "Access token not available or empty", Toast.LENGTH_LONG).show();
+            // Toast.makeText(this, "Access token not available or empty",
+            // Toast.LENGTH_LONG).show();
             ToastUtil.showCustomToast(this, "Access token not available or empty", false);
         }
-
 
         // Store the retrieved access token for later use
         accessToken = retrievedAccessToken;
@@ -102,7 +101,7 @@ public class BookDetailActivity extends AppCompatActivity {
         String bookCategoryName = getIntent().getStringExtra("book_Category_Name");
         String authorName = getIntent().getStringExtra("author_name");
         String authorDecs = getIntent().getStringExtra("description");
-        int bookId = getIntent().getIntExtra("book_id",0); // Retrieve book_id
+        int bookId = getIntent().getIntExtra("book_id", 0); // Retrieve book_id
 
         // Log the book_id
         Log.d("SignIn", "Book ID: " + bookId);
@@ -118,11 +117,10 @@ public class BookDetailActivity extends AppCompatActivity {
             findViewById(R.id.btnAddToCart).setVisibility(View.VISIBLE);
         }
 
-
         // Find the Add to Button id
         Button addToCartButton = findViewById(R.id.btnAddToCart);
 
-        //set onClickListener for the button addToCart
+        // set onClickListener for the button addToCart
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,28 +132,31 @@ public class BookDetailActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.txtTitleDetail);
         TextView textViewPrice = findViewById(R.id.txtPriceCategoryGeneral);
         TextView textViewPublisher = findViewById(R.id.txtpublisherCategoryGeneral);
-        //TextView textViewBookCategoryName = findViewById(R.id.BookCategoryName);
+        // TextView textViewBookCategoryName = findViewById(R.id.BookCategoryName);
         Picasso.get().load(bookImageUrl).into(imageView);
 
         TextView showMoreTextView = findViewById(R.id.showMoreTextView);
 
         // Create a SpannableString for "Name: " with a different color
         SpannableString spannableTitleLabel = new SpannableString("Title: ");
-        spannableTitleLabel.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannableTitleLabel.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableTitleLabel.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannableTitleLabel.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(spannableTitleLabel);
         textView.append(bookTitle);
 
         // Create a SpannableString for "Name: " with a different color
         SpannableString spannablePriceLabel = new SpannableString("Price: ");
-        spannablePriceLabel.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannablePriceLabel.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannablePriceLabel.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannablePriceLabel.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textViewPrice.setText(spannablePriceLabel);
         textViewPrice.append(bookPrice);
 
         // Create a SpannableString for "Name: " with a different color
         SpannableString spannablePublisherLabel = new SpannableString("Publisher: ");
-        spannablePublisherLabel.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannablePublisherLabel.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannablePublisherLabel.setSpan(new ForegroundColorSpan(Color.BLACK), 0, spannablePublisherLabel.length(),
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textViewPublisher.setText(spannablePublisherLabel);
         textViewPublisher.append(bookPublisher);
@@ -197,13 +198,19 @@ public class BookDetailActivity extends AppCompatActivity {
         }
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")
+                .baseUrl("https://elibra.skinme.store/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        // Fetch book details from intent
-        //int bookId = getIntent().getIntExtra("book_id", 0);
-        int userId = getIntent().getIntExtra("user_id",0); // Implement this method to get the user ID
+        // Fetch user_id from SharedPreferences (same way as accessToken)
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        int userId = sharedPreferences.getInt("user_id", 0);
+
+        if (userId == 0) {
+            ToastUtil.showCustomToast(this, "User ID not available", false);
+            return;
+        }
+
         int quantity = 1; // You can set the quantity as per your requirements
 
         // Create an instance of AddCartBook and set user_id, book_id, and quantity
@@ -215,13 +222,15 @@ public class BookDetailActivity extends AppCompatActivity {
         // Create ApiServiceCartBook instance
         ApiServiceCartBook apiServiceCartBook = retrofit.create(ApiServiceCartBook.class);
 
-        // Make the POST request with the access token in the header and AddCartBook instance in the request body
+        // Make the POST request with the access token in the header and AddCartBook
+        // instance in the request body
         apiServiceCartBook.AddCartBook("Bearer " + accessToken, addCartBook).enqueue(new Callback<AddCartBook>() {
             @Override
             public void onResponse(Call<AddCartBook> call, Response<AddCartBook> response) {
                 if (response.isSuccessful()) {
                     // Handle successful response
-//                    Toast.makeText(BookDetailActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(BookDetailActivity.this, "Successful",
+                    // Toast.LENGTH_SHORT).show();
                     ToastUtil.showCustomToast(BookDetailActivity.this, "Successful", true);
                     isItemAddedToCart = true;
 
@@ -229,7 +238,7 @@ public class BookDetailActivity extends AppCompatActivity {
                     addedBookIds.add(bookId);
                 } else {
                     // Handle unsuccessful response
-//                    Log.e("AddToCart", "Failed to add book to cart: " + response.message());
+                    // Log.e("AddToCart", "Failed to add book to cart: " + response.message());
                     ToastUtil.showCustomToast(BookDetailActivity.this, "Failed to add book to cart", false);
                 }
             }
@@ -237,7 +246,7 @@ public class BookDetailActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<AddCartBook> call, Throwable t) {
                 // Handle failure
-//                Log.e("AddToCart", "Failed to add book to cart", t);
+                // Log.e("AddToCart", "Failed to add book to cart", t);
                 ToastUtil.showCustomToast(BookDetailActivity.this, "Failed to add book to cart", false);
             }
         });

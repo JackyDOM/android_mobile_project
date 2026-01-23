@@ -12,4 +12,7 @@ import retrofit2.http.Path;
 public interface ApiServiceSearching {
     @GET("/books/book/{title}")
     Call<List<Searching>> loadSearchingImage(@Header("Authorization") String authorizationHeader, @Path("title") String title);
+    
+    @GET("/books/book/{id}")
+    Call<Searching> loadSearchingById(@Header("Authorization") String authorizationHeader, @Path("id") int id);
 }

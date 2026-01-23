@@ -76,7 +76,7 @@ public class YourBookActivity extends AppCompatActivity {
 
     private void loadYourBook() {
         Retrofit httpClient = new Retrofit.Builder()
-                .baseUrl("https://elibra.skinme.store/")
+                .baseUrl("https://elibra.skinme.store/event/userbook/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

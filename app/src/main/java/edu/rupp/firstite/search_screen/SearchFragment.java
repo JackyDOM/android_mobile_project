@@ -38,7 +38,8 @@ public class SearchFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
         binding = FragmentSearchBinding.inflate(inflater, container, false);
 
         // Fetch access token from SharedPreferences
@@ -52,7 +53,8 @@ public class SearchFragment extends Fragment {
             accessToken = retrievedAccessToken;
         } else {
             // Handle scenario where access token is not available or empty
-//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_LONG).show();
+            // Toast.makeText(getContext(), "Access token not available or empty",
+            // Toast.LENGTH_LONG).show();
             ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
         }
 
@@ -70,7 +72,6 @@ public class SearchFragment extends Fragment {
         binding.recycleViewSearch.setAdapter(searchingAdapter);
     }
 
-
     private void setupSearchView() {
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -78,7 +79,8 @@ public class SearchFragment extends Fragment {
                 if (!TextUtils.isEmpty(query)) {
                     searchBook(query);
                 } else {
-//                    Toast.makeText(getContext(), "Please enter a title to search", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getContext(), "Please enter a title to search",
+                    // Toast.LENGTH_SHORT).show();
                     ToastUtil.showCustomToast(requireContext(), "Please enter a title to search", false);
                 }
                 return true;
@@ -95,34 +97,72 @@ public class SearchFragment extends Fragment {
         });
     }
 
-    private void searchBook(String title) {
-        if (accessToken != null) {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://elibra.skinme.store/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+    private void searchBook(String query) {
+        if (accessToken == null) {
+            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
+            return;
+        }
 
-            apiService = retrofit.create(ApiServiceSearching.class);
-            apiService.loadSearchingImage("Bearer " + accessToken, title).enqueue(new Callback<List<Searching>>() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://elibra.skinme.store/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        apiService = retrofit.create(ApiServiceSearching.class);
+
+        // Check if query is numeric (ID) or text (title)
+        if (isNumeric(query)) {
+            // Search by ID
+            int bookId = Integer.parseInt(query);
+            apiService.loadSearchingById("Bearer " + accessToken, bookId).enqueue(new Callback<Searching>() {
+                @Override
+                public void onResponse(Call<Searching> call, Response<Searching> response) {
+                    if (response.isSuccessful() && response.body() != null) {
+                        List<Searching> singleResult = new ArrayList<>();
+                        singleResult.add(response.body());
+                        searchingAdapter.updateData(singleResult);
+                    } else {
+                        ToastUtil.showCustomToast(requireContext(), "Book ID not found", false);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Searching> call, Throwable t) {
+                    ToastUtil.showCustomToast(requireContext(), "Failed to fetch data", false);
+                    Log.e("SearchFragment", "Error searching by ID: " + t.getMessage());
+                }
+            });
+        } else {
+            // Search by title
+            apiService.loadSearchingImage("Bearer " + accessToken, query).enqueue(new Callback<List<Searching>>() {
                 @Override
                 public void onResponse(Call<List<Searching>> call, Response<List<Searching>> response) {
                     if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
                         searchingAdapter.updateData(response.body());
                     } else {
-//                        Toast.makeText(getContext(), "Title not found", Toast.LENGTH_SHORT).show();
                         ToastUtil.showCustomToast(requireContext(), "Title not found", false);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<List<Searching>> call, Throwable t) {
-//                    Toast.makeText(getContext(), "Failed to fetch data", Toast.LENGTH_SHORT).show();
                     ToastUtil.showCustomToast(requireContext(), "Failed to fetch data", false);
+                    Log.e("SearchFragment", "Error searching by title: " + t.getMessage());
                 }
             });
-        } else {
-//            Toast.makeText(getContext(), "Access token not available or empty", Toast.LENGTH_SHORT).show();
-            ToastUtil.showCustomToast(requireContext(), "Access token not available or empty", false);
+        }
+    }
+
+    // Helper method to check if string is numeric
+    private boolean isNumeric(String str) {
+        if (str == null || str.isEmpty()) {
+            return false;
+        }
+        try {
+            Integer.parseInt(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
